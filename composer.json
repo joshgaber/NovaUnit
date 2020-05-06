@@ -1,0 +1,53 @@
+{
+    "name": "joshgaber/novaunit",
+    "description": "Unit testing suite for Laravel Nova, built to extend PHPUnit",
+    "keywords": [
+        "joshgaber",
+        "novaunit"
+    ],
+    "homepage": "https://github.com/joshgaber/novaunit",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Josh Gaber",
+            "email": "joshgaber@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JoshGaber\\NovaUnit\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JoshGaber\\NovaUnit\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JoshGaber\\NovaUnit\\NovaUnitServiceProvider"
+            ],
+            "aliases": {
+                "Novaunit": "JoshGaber\\NovaUnit\\NovaUnitFacade"
+            }
+        }
+    }
+}
