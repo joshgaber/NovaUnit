@@ -5,3 +5,8 @@ vendor
 coverage
 
 .idea
+
+auth.json
+
+.phpunit.result.cache
+.php_cs.cache
