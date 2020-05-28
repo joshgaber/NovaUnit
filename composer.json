@@ -1,7 +1,9 @@
 {
-    "name": "joshgaber/novaunit",
+    "name": "novaunit/novaunit",
     "description": "Unit testing suite for Laravel Nova, built to extend PHPUnit",
     "keywords": [
+        "laravel",
+        "nova",
         "joshgaber",
         "novaunit"
     ],
@@ -12,42 +14,43 @@
         {
             "name": "Josh Gaber",
             "email": "joshgaber@gmail.com",
+            "homepage": "https://joshgaber.ca",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^6.0"
+        "php": "^7.2",
+        "ext-mbstring": "*",
+        "illuminate/support": "^7.0",
+        "laravel/nova": "^3.6"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "orchestra/testbench": "^5.2",
         "phpunit/phpunit": "^8.0"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
-            "JoshGaber\\NovaUnit\\": "src"
+            "NovaUnit\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JoshGaber\\NovaUnit\\Tests\\": "tests"
+            "NovaUnit\\Tests\\": "tests"
         }
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "lint": "vendor/bin/php-cs-fixer fix"
     },
     "config": {
         "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "JoshGaber\\NovaUnit\\NovaUnitServiceProvider"
-            ],
-            "aliases": {
-                "Novaunit": "JoshGaber\\NovaUnit\\NovaUnitFacade"
-            }
-        }
     }
 }

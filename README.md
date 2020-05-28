@@ -1,30 +1,31 @@
-# Very short description of the package
+# NovaUnit
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/joshgaber/novaunit.svg?style=flat-square)](https://packagist.org/packages/joshgaber/novaunit)
 [![Build Status](https://img.shields.io/travis/joshgaber/novaunit/master.svg?style=flat-square)](https://travis-ci.org/joshgaber/novaunit)
 [![Quality Score](https://img.shields.io/scrutinizer/g/joshgaber/novaunit.svg?style=flat-square)](https://scrutinizer-ci.com/g/joshgaber/novaunit)
 [![Total Downloads](https://img.shields.io/packagist/dt/joshgaber/novaunit.svg?style=flat-square)](https://packagist.org/packages/joshgaber/novaunit)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+NovaUnit is a unit-testing package for Laravel Nova, built using PHPUnit.
 
 ## Installation
 
 You can install the package via composer:
 
-```bash
+```sh
 composer require joshgaber/novaunit
 ```
 
 ## Usage
 
-``` php
-// Usage description here
+```php
+class ClearLogsTest extends TestCase {
+    use NovaActionTest;
+}
 ```
 
-### Testing
-
-``` bash
-composer test
+```php
+$this->testNovaAction(ClearLogs::class)
+    ->assertHasField('since_date');
 ```
 
 ### Changelog
@@ -42,7 +43,6 @@ If you discover any security related issues, please email joshgaber@gmail.com in
 ## Credits
 
 - [Josh Gaber](https://github.com/joshgaber)
-- [All Contributors](../../contributors)
 
 ## License
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace JoshGaber\NovaUnit;
+namespace NovaUnit;
 
 class NovaUnit
 {
-    // Build your next great package.
+    //
 }
