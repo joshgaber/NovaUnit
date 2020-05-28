@@ -3,6 +3,9 @@ filter:
 
 build:
     nodes:
+        analysis:
+            tests:
+                override: [php-scrutinizer-run]
         coverage:
             tests:
                 override:
