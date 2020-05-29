@@ -13,7 +13,7 @@ trait NovaActionTest
      * @return MockAction The Action mock instance
      * @throws InvalidNovaActionException If the supplied action class is not a Nova Action
      */
-    public function testNovaAction(string $action): MockAction
+    public static function novaAction(string $action): MockAction
     {
         if (! \is_subclass_of($action, Action::class)) {
             throw new InvalidNovaActionException('The class provided is not a valid Nova Action.');
