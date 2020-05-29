@@ -23,7 +23,7 @@ class NovaLensTestTest extends TestCase
 
     public function testItWillCreateAMockLensTestClassWithValidLens()
     {
-        $mock = $this->novaLensTest->testNovaLens(LensValidFieldsAndActions::class, MockModel::class);
+        $mock = $this->novaLensTest->novaLens(LensValidFieldsAndActions::class, MockModel::class);
 
         $this->assertInstanceOf(MockLens::class, $mock);
     }
@@ -31,6 +31,6 @@ class NovaLensTestTest extends TestCase
     public function testItWillThrowExceptionWithNoValidLens()
     {
         $this->expectException(InvalidNovaLensException::class);
-        $mock = $this->novaLensTest->testNovaLens(\stdClass::class, MockModel::class);
+        $mock = $this->novaLensTest->novaLens(\stdClass::class, MockModel::class);
     }
 }

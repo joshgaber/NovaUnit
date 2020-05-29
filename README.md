@@ -19,16 +19,24 @@ composer require joshgaber/novaunit
 
 ## Usage
 
+To access the test classes, import and use the base test traits:
+
 ```php
 class ClearLogsTest extends TestCase {
     use NovaActionTest;
 }
 ```
 
+Currently, there are three traits: `NovaActionTest`, `NovaLensTest` and `NovaResourceTest`. To test these components, invoke the respective test class (ie. `novaAction` for Actions).
+
+Once you've created the mock with the initial test class, you can begin testing different aspect of the component:
+
 ```php
-$this->testNovaAction(ClearLogs::class)
+$this->novaAction(ClearLogs::class)
     ->assertHasField('since_date');
 ```
+
+For a list of available methods, see the [full docs site](https://novaunit.github.io).
 
 ### Changelog
 
