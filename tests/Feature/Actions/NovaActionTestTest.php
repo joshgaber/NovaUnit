@@ -22,7 +22,7 @@ class NovaActionTestTest extends TestCase
 
     public function testItWillCreateAMockActionTestClassWithValidAction()
     {
-        $mock = $this->novaActionTest->testNovaAction(ActionValidFields::class);
+        $mock = $this->novaActionTest->novaAction(ActionValidFields::class);
 
         $this->assertInstanceOf(MockAction::class, $mock);
     }
@@ -30,6 +30,6 @@ class NovaActionTestTest extends TestCase
     public function testItWillThrowExceptionWithInvalidAction()
     {
         $this->expectException(InvalidNovaActionException::class);
-        $mock = $this->novaActionTest->testNovaAction(\stdClass::class);
+        $mock = $this->novaActionTest->novaAction(\stdClass::class);
     }
 }

@@ -15,7 +15,7 @@ trait NovaResourceTest
      * @return MockResource The Resource mock instance
      * @throws InvalidNovaResourceException If the supplied action class is not a Nova Resource
      */
-    public function testNovaResource(string $class, Model $model): MockResource
+    public static function novaResource(string $class, Model $model): MockResource
     {
         if (! \is_subclass_of($class, Resource::class)) {
             throw new InvalidNovaResourceException();
