@@ -34,7 +34,7 @@ $action->handle($fields, $models);
 Invokes the `handle` method on the action with the given parameters.
 
 * `$fields` - A key-value array with the input values of the action fields, indexed by attribute. Eg., `['name' => 'John Smith']`
-* `$models` - A list of the models to apply the action to. Value can be either an array, an Eloquent collection, or a single Model. 
+* `$models` - A list of the models to apply the action to. Value can be either an array, an Eloquent collection, or a single Model.
 
 ## Lenses
 

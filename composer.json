@@ -1,5 +1,6 @@
 {
     "name": "novaunit/novaunit",
+    "version": "1.0.0",
     "description": "Unit testing suite for Laravel Nova, built to extend PHPUnit",
     "keywords": [
         "laravel",
@@ -21,13 +22,14 @@
     "require": {
         "php": "^7.2",
         "ext-mbstring": "*",
-        "illuminate/support": "^7.0",
-        "laravel/nova": "^3.6"
+        "cakephp/chronos": ">=1.2.3",
+        "illuminate/support": ">=6.0",
+        "laravel/nova": ">=2.0",
+        "phpunit/phpunit": ">=8.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
-        "orchestra/testbench": "^5.2",
-        "phpunit/phpunit": "^8.0"
+        "orchestra/testbench": "^5.2"
     },
     "repositories": [
         {
