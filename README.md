@@ -1,21 +1,28 @@
 # NovaUnit
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/joshgaber/novaunit.svg?style=flat-square)](https://packagist.org/packages/joshgaber/novaunit)
-[![Build Status](https://scrutinizer-ci.com/g/joshgaber/novaunit/badges/build.png)](https://scrutinizer-ci.com/g/joshgaber/novaunit/build-status/master)
+[![Build Status](https://travis-ci.org/joshgaber/NovaUnit.svg)](https://travis-ci.org/joshgaber/NovaUnit)
 [![Code Coverage](https://scrutinizer-ci.com/g/joshgaber/novaunit/badges/coverage.png)](https://scrutinizer-ci.com/g/joshgaber/novaunit/)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/joshgaber/novaunit/badges/quality-score.png)](https://scrutinizer-ci.com/g/joshgaber/novaunit/)
 [![StyleCI](https://github.styleci.io/repos/261879333/shield)](https://github.styleci.io/repos/261879333)
 [![Total Downloads](https://img.shields.io/packagist/dt/joshgaber/novaunit.svg?style=flat-square)](https://packagist.org/packages/joshgaber/novaunit)
 
-NovaUnit is a unit-testing package for Laravel Nova, built using PHPUnit.
+NovaUnit is a unit-testing package for Laravel Nova, built using PHPUnit. NovaUnit provides you with assertions for Nova Actions, Lenses and Resources, so you can create great administration panels with confidence.
 
 ## Installation
 
-You can install the package via composer:
+You can install the package in your Laravel Project via composer:
 
 ```sh
-composer require joshgaber/novaunit
+composer require --dev joshgaber/novaunit
 ```
+
+### Requirements
+
+* PHP 7.2 or higher
+* [Laravel](https://laravel.com/) 6.x - 7.x
+* [Laravel Nova](https://nova.laravel.com/) 2.x - 3.x
+* [PHPUnit](https://github.com/sebastianbergmann/phpunit) 8.x - 9.x
 
 ## Usage
 
@@ -36,7 +43,7 @@ $this->novaAction(ClearLogs::class)
     ->assertHasField('since_date');
 ```
 
-For a list of available methods, see the [full docs site](https://novaunit.github.io).
+For a list of available methods, see the [full docs site](https://joshgaber.github.io/NovaUnit/index.html).
 
 ### Changelog
 
