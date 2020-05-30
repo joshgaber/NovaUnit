@@ -36,7 +36,7 @@ $this->novaAction(ClearLogs::class)
     ->assertHasField('since_date');
 ```
 
-For a list of available methods, see the [full docs site](https://novaunit.github.io).
+For a list of available methods, see the [full docs site](https://joshgaber.github.io/NovaUnit/).
 
 ### Changelog
 
