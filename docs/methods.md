@@ -16,7 +16,7 @@ To create the testing object for a Nova Action, add the test trait to your class
 ```php
 class TestClass extends TestCase
 {
-    use \NovaUnit\Actions\NovaActionTest;
+    use NovaActionTest;
 
     public function testNovaAction()
     {
@@ -34,7 +34,7 @@ $action->handle($fields, $models);
 Invokes the `handle` method on the action with the given parameters.
 
 * `$fields` - A key-value array with the input values of the action fields, indexed by attribute. Eg., `['name' => 'John Smith']`
-* `$models` - A list of the models to apply the action to. Value can be either an array, an Eloquent collection, or a single Model. 
+* `$models` - A list of the models to apply the action to. Value can be either an array, an Eloquent collection, or a single Model.
 
 ## Lenses
 
@@ -43,7 +43,7 @@ To create the testing object for a Nova Lens, add the test trait to your class, 
 ```php
 class TestClass extends TestCase
 {
-    use \NovaUnit\Actions\NovaLensTest;
+    use NovaLensTest;
 
     public function testNovaLens()
     {
@@ -85,7 +85,7 @@ To create the testing object for a Nova Resource, add the test trait to your cla
 ```php
 class TestClass extends TestCase
 {
-    use \NovaUnit\Actions\NovaResourceTest;
+    use NovaResourceTest;
 
     public function testNovaResource()
     {
