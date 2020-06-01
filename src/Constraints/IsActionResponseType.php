@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaUnit\Constraints;
+namespace JoshGaber\NovaUnit\Constraints;
 
 use Laravel\Nova\Actions\Action;
 use PHPUnit\Framework\Constraint\Constraint;

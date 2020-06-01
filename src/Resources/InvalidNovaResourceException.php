@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaUnit\Resources;
+namespace JoshGaber\NovaUnit\Resources;
 
 /**
  * Occurs when attempting to initialize a Nova Resource test

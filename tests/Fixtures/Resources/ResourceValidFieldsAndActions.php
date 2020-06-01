@@ -1,13 +1,13 @@
 <?php
 
-namespace NovaUnit\Tests\Fixtures\Resources;
+namespace JoshGaber\NovaUnit\Tests\Fixtures\Resources;
 
 use Illuminate\Http\Request;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionNoFields;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource;
-use NovaUnit\Tests\Fixtures\Actions\ActionNoFields;
-use NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
 
 class ResourceValidFieldsAndActions extends Resource
 {

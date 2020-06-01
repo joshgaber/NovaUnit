@@ -1,16 +1,16 @@
 <?php
 
-namespace NovaUnit\Tests\Feature\Traits;
+namespace JoshGaber\NovaUnit\Tests\Feature\Traits;
 
-use NovaUnit\Resources\MockResource;
-use NovaUnit\Tests\Fixtures\Actions\ActionInvalidFields;
-use NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
-use NovaUnit\Tests\Fixtures\MockModel;
-use NovaUnit\Tests\Fixtures\Resources\ResourceInvalidFieldsAndActions;
-use NovaUnit\Tests\Fixtures\Resources\ResourceInvalidFieldsetAndActionSet;
-use NovaUnit\Tests\Fixtures\Resources\ResourceNoFieldsOrActions;
-use NovaUnit\Tests\Fixtures\Resources\ResourceValidFieldsAndActions;
-use NovaUnit\Tests\TestCase;
+use JoshGaber\NovaUnit\Resources\MockResource;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionInvalidFields;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
+use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
+use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceInvalidFieldsAndActions;
+use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceInvalidFieldsetAndActionSet;
+use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceNoFieldsOrActions;
+use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceValidFieldsAndActions;
+use JoshGaber\NovaUnit\Tests\TestCase;
 
 class ActionAssertionsTest extends TestCase
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace NovaUnit\Actions;
+namespace JoshGaber\NovaUnit\Actions;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use JoshGaber\NovaUnit\MockComponent;
+use JoshGaber\NovaUnit\Traits\FieldAssertions;
 use Laravel\Nova\Fields\ActionFields;
-use NovaUnit\MockComponent;
-use NovaUnit\Traits\FieldAssertions;
 
 class MockAction extends MockComponent
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace NovaUnit\Tests\Feature\Actions;
+namespace JoshGaber\NovaUnit\Tests\Feature\Actions;
 
-use NovaUnit\Actions\MockAction;
-use NovaUnit\Actions\MockActionResponse;
-use NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
-use NovaUnit\Tests\TestCase;
+use JoshGaber\NovaUnit\Actions\MockAction;
+use JoshGaber\NovaUnit\Actions\MockActionResponse;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
+use JoshGaber\NovaUnit\Tests\TestCase;
 
 class MockActionTest extends TestCase
 {

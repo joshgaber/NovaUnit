@@ -1,13 +1,13 @@
 <?php
 
-namespace NovaUnit\Tests\Feature\Traits;
+namespace JoshGaber\NovaUnit\Tests\Feature\Traits;
 
-use NovaUnit\Actions\MockAction;
-use NovaUnit\Tests\Fixtures\Actions\ActionInvalidFields;
-use NovaUnit\Tests\Fixtures\Actions\ActionInvalidFieldset;
-use NovaUnit\Tests\Fixtures\Actions\ActionNoFields;
-use NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
-use NovaUnit\Tests\TestCase;
+use JoshGaber\NovaUnit\Actions\MockAction;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionInvalidFields;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionInvalidFieldset;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionNoFields;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
+use JoshGaber\NovaUnit\Tests\TestCase;
 
 class FieldAssertionsTest extends TestCase
 {
