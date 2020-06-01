@@ -1,16 +1,23 @@
-# NovaUnit
-
-NovaUnit is a unit-testing package for Laravel Nova, built using PHPUnit.
+NovaUnit is a unit-testing package for Laravel Nova, built using PHPUnit. NovaUnit provides you with assertions for Nova Actions, Lenses and Resources, so you can create great administration panels with confidence.
 
 ## Installation
 
-You can install the package via composer:
+You can install this package into your Laravel project via composer:
 
 ```sh
-composer require joshgaber/novaunit
+composer require --dev joshgaber/novaunit
 ```
 
+### Requirements
+
+* PHP 7.2 or higher
+* [Laravel](https://laravel.com/) 6.x - 7.x
+* [Laravel Nova](https://nova.laravel.com/) 2.x - 3.x
+* [PHPUnit](https://github.com/sebastianbergmann/phpunit) 8.x - 9.x
+
 ## Usage
+
+NovaUnit can be used to perform assertions on Actions, Lenses and Resources.
 
 To access the test classes, import and use the base test traits:
 
