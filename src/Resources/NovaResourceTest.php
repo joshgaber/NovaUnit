@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaUnit\Resources;
+namespace JoshGaber\NovaUnit\Resources;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Nova\Resource;

@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaUnit\Constraints;
+namespace JoshGaber\NovaUnit\Constraints;
 
 use Laravel\Nova\Fields\Field;
 use PHPUnit\Framework\Constraint\Constraint;
