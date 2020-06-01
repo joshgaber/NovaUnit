@@ -1,5 +1,5 @@
 {
-    "name": "novaunit/novaunit",
+    "name": "joshgaber/novaunit",
     "version": "1.0.0",
     "description": "Unit testing suite for Laravel Nova, built to extend PHPUnit",
     "keywords": [
@@ -39,12 +39,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "NovaUnit\\": "src"
+            "JoshGaber\\NovaUnit\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NovaUnit\\Tests\\": "tests"
+            "JoshGaber\\NovaUnit\\Tests\\": "tests"
         }
     },
     "scripts": {

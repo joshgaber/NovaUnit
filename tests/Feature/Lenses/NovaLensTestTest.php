@@ -1,12 +1,12 @@
 <?php
 
-namespace NovaUnit\Tests\Feature\Lenses;
+namespace JoshGaber\NovaUnit\Tests\Feature\Lenses;
 
-use NovaUnit\Lenses\InvalidNovaLensException;
-use NovaUnit\Lenses\MockLens;
-use NovaUnit\Lenses\NovaLensTest;
-use NovaUnit\Tests\Fixtures\Lenses\LensValidFieldsAndActions;
-use NovaUnit\Tests\Fixtures\MockModel;
+use JoshGaber\NovaUnit\Lenses\InvalidNovaLensException;
+use JoshGaber\NovaUnit\Lenses\MockLens;
+use JoshGaber\NovaUnit\Lenses\NovaLensTest;
+use JoshGaber\NovaUnit\Tests\Fixtures\Lenses\LensValidFieldsAndActions;
+use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
 use PHPUnit\Framework\TestCase;
 
 class NovaLensTestTest extends TestCase

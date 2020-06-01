@@ -1,10 +1,10 @@
 <?php
 
-namespace NovaUnit\Tests\Feature\Actions;
+namespace JoshGaber\NovaUnit\Tests\Feature\Actions;
 
+use JoshGaber\NovaUnit\Actions\MockActionResponse;
+use JoshGaber\NovaUnit\Tests\TestCase;
 use Laravel\Nova\Actions\Action;
-use NovaUnit\Actions\MockActionResponse;
-use NovaUnit\Tests\TestCase;
 
 class MockActionResponseTest extends TestCase
 {

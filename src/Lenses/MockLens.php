@@ -1,12 +1,12 @@
 <?php
 
-namespace NovaUnit\Lenses;
+namespace JoshGaber\NovaUnit\Lenses;
 
 use Illuminate\Database\Eloquent\Model;
-use NovaUnit\Constraints\EloquentCollectionContains;
-use NovaUnit\MockComponent;
-use NovaUnit\Traits\ActionAssertions;
-use NovaUnit\Traits\FieldAssertions;
+use JoshGaber\NovaUnit\Constraints\EloquentCollectionContains;
+use JoshGaber\NovaUnit\MockComponent;
+use JoshGaber\NovaUnit\Traits\ActionAssertions;
+use JoshGaber\NovaUnit\Traits\FieldAssertions;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 class MockLens extends MockComponent

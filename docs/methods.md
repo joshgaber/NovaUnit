@@ -16,7 +16,7 @@ To create the testing object for a Nova Action, add the test trait to your class
 ```php
 class TestClass extends TestCase
 {
-    use \NovaUnit\Actions\NovaActionTest;
+    use NovaActionTest;
 
     public function testNovaAction()
     {
@@ -43,7 +43,7 @@ To create the testing object for a Nova Lens, add the test trait to your class, 
 ```php
 class TestClass extends TestCase
 {
-    use \NovaUnit\Actions\NovaLensTest;
+    use NovaLensTest;
 
     public function testNovaLens()
     {
@@ -85,7 +85,7 @@ To create the testing object for a Nova Resource, add the test trait to your cla
 ```php
 class TestClass extends TestCase
 {
-    use \NovaUnit\Actions\NovaResourceTest;
+    use NovaResourceTest;
 
     public function testNovaResource()
     {
