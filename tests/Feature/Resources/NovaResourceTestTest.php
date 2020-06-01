@@ -1,12 +1,12 @@
 <?php
 
-namespace NovaUnit\Tests\Feature\Resources;
+namespace JoshGaber\NovaUnit\Tests\Feature\Resources;
 
-use NovaUnit\Resources\InvalidNovaResourceException;
-use NovaUnit\Resources\MockResource;
-use NovaUnit\Resources\NovaResourceTest;
-use NovaUnit\Tests\Fixtures\MockModel;
-use NovaUnit\Tests\Fixtures\Resources\ResourceValidFieldsAndActions;
+use JoshGaber\NovaUnit\Resources\InvalidNovaResourceException;
+use JoshGaber\NovaUnit\Resources\MockResource;
+use JoshGaber\NovaUnit\Resources\NovaResourceTest;
+use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
+use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceValidFieldsAndActions;
 use PHPUnit\Framework\TestCase;
 
 class NovaResourceTestTest extends TestCase

@@ -1,10 +1,10 @@
 <?php
 
-namespace NovaUnit\Traits;
+namespace JoshGaber\NovaUnit\Traits;
 
 use Illuminate\Http\Request;
-use NovaUnit\Constraints\HasField;
-use NovaUnit\Constraints\HasValidFields;
+use JoshGaber\NovaUnit\Constraints\HasField;
+use JoshGaber\NovaUnit\Constraints\HasValidFields;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 trait FieldAssertions

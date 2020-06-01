@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaUnit\Actions;
+namespace JoshGaber\NovaUnit\Actions;
 
 use Laravel\Nova\Actions\Action;
 

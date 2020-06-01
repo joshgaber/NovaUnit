@@ -1,10 +1,10 @@
 <?php
 
-namespace NovaUnit\Resources;
+namespace JoshGaber\NovaUnit\Resources;
 
-use NovaUnit\MockComponent;
-use NovaUnit\Traits\ActionAssertions;
-use NovaUnit\Traits\FieldAssertions;
+use JoshGaber\NovaUnit\MockComponent;
+use JoshGaber\NovaUnit\Traits\ActionAssertions;
+use JoshGaber\NovaUnit\Traits\FieldAssertions;
 
 class MockResource extends MockComponent
 {

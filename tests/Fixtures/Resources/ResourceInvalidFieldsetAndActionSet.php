@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaUnit\Tests\Fixtures\Resources;
+namespace JoshGaber\NovaUnit\Tests\Fixtures\Resources;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Resource;

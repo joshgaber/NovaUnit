@@ -1,8 +1,8 @@
 <?php
 
-namespace NovaUnit\Actions;
+namespace JoshGaber\NovaUnit\Actions;
 
-use NovaUnit\Constraints\IsActionResponseType;
+use JoshGaber\NovaUnit\Constraints\IsActionResponseType;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 class MockActionResponse

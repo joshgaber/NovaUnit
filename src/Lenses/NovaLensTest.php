@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaUnit\Lenses;
+namespace JoshGaber\NovaUnit\Lenses;
 
 use Laravel\Nova\Lenses\Lens;
 

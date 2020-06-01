@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaUnit\Tests\Fixtures\Actions;
+namespace JoshGaber\NovaUnit\Tests\Fixtures\Actions;
 
 use Laravel\Nova\Actions\Action;
 
