@@ -14,7 +14,7 @@ trait NovaLensTest
      * @return MockLens The Lens mock instance
      * @throws InvalidNovaLensException If the supplied action class is not a Nova Lens
      */
-    public static function novaLens(string $lens, string $model): MockLens
+    public static function novaLens(string $lens, ?string $model = null): MockLens
     {
         if (! \is_subclass_of($lens, Lens::class)) {
             throw new InvalidNovaLensException();
