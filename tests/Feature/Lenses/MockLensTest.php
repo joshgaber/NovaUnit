@@ -2,8 +2,11 @@
 
 namespace JoshGaber\NovaUnit\Tests\Feature\Lenses;
 
+use JoshGaber\NovaUnit\Exceptions\InvalidModelException;
 use JoshGaber\NovaUnit\Lenses\MockLens;
+use JoshGaber\NovaUnit\Lenses\MockLensQuery;
 use JoshGaber\NovaUnit\Tests\Fixtures\Lenses\LensQueryTenOrGreater;
+use JoshGaber\NovaUnit\Tests\Fixtures\Lenses\LensValidFieldsAndActions;
 use JoshGaber\NovaUnit\Tests\Fixtures\Lenses\LensWithFiltersAndOrdering;
 use JoshGaber\NovaUnit\Tests\Fixtures\Lenses\LensWithoutFiltersAndOrdering;
 use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
@@ -89,5 +92,34 @@ class MockLensTest extends TestCase
         $mockLens = new MockLens(LensWithoutFiltersAndOrdering::class, MockModel::class);
 
         $mockLens->assertQueryWithOrdering();
+    }
+
+    public function testItReturnsAMockQuery()
+    {
+        $this->usesDatabase();
+
+        $mockLens = new MockLens(LensValidFieldsAndActions::class, MockModel::class);
+
+        $mockQuery = $mockLens->query();
+
+        $this->assertInstanceOf(MockLensQuery::class, $mockQuery);
+    }
+
+    public function testItReturnsAMockQueryWithModelClassIncludedInQuery()
+    {
+        $this->usesDatabase();
+
+        $mockLens = new MockLens(LensValidFieldsAndActions::class);
+
+        $mockQuery = $mockLens->query(MockModel::class);
+
+        $this->assertInstanceOf(MockLensQuery::class, $mockQuery);
+    }
+
+    public function testItThrowsErrorWhenModelClassNotIncludedInConstructorOrQuery()
+    {
+        $this->usesDatabase()->expectException(InvalidModelException::class);
+
+        (new MockLens(LensValidFieldsAndActions::class))->query();
     }
 }
