@@ -14,6 +14,7 @@ class LensValidFieldsAndActions extends Lens
 {
     public static function query(LensRequest $request, $query)
     {
+        return $query;
     }
 
     public function fields(Request $request)
