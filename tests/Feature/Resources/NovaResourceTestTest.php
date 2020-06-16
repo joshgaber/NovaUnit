@@ -28,6 +28,13 @@ class NovaResourceTestTest extends TestCase
         $this->assertInstanceOf(MockResource::class, $mock);
     }
 
+    public function testItWillCreateAMockResourceTestClassWithValidResourceAndNoModel()
+    {
+        $mock = $this->novaResourceTest->novaResource(ResourceValidFieldsAndActions::class);
+
+        $this->assertInstanceOf(MockResource::class, $mock);
+    }
+
     public function testItWillThrowExceptionWithInvalidResource()
     {
         $this->expectException(InvalidNovaResourceException::class);
