@@ -2,8 +2,9 @@
 
 namespace JoshGaber\NovaUnit\Actions;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use JoshGaber\NovaUnit\MockComponent;
 use JoshGaber\NovaUnit\Traits\FieldAssertions;
 use Laravel\Nova\Fields\ActionFields;
@@ -22,7 +23,10 @@ class MockAction extends MockComponent
     public function handle(array $fields, $models): MockActionResponse
     {
         return new MockActionResponse(
-            $this->component->handle(new ActionFields(collect($fields), collect()), collect($models))
+            $this->component->handle(
+                new ActionFields(collect($fields), collect()),
+                $models instanceof Collection ? $models : collect(Arr::wrap($models))
+            )
         );
     }
 }
