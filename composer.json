@@ -1,7 +1,7 @@
 {
     "name": "joshgaber/novaunit",
     "description": "Unit testing suite for Laravel Nova, built to extend PHPUnit",
-    "version": "1.0",
+    "version": "1.0.1",
     "keywords": [
         "laravel",
         "nova",
