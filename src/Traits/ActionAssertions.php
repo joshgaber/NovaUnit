@@ -4,7 +4,7 @@ namespace JoshGaber\NovaUnit\Traits;
 
 use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Constraints\ArrayHasInstanceOf;
-use JoshGaber\NovaUnit\Constraints\HasValidFields;
+use JoshGaber\NovaUnit\Constraints\HasValidActions;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 trait ActionAssertions
@@ -53,7 +53,7 @@ trait ActionAssertions
      */
     public function assertHasNoActions(string $message = ''): self
     {
-        PHPUnit::assertCount(0, $this->component->fields(Request::createFromGlobals()), $message);
+        PHPUnit::assertCount(0, $this->component->actions(Request::createFromGlobals()), $message);
 
         return $this;
     }
@@ -67,8 +67,8 @@ trait ActionAssertions
     public function assertHasValidActions(string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->fields(Request::createFromGlobals()),
-            new HasValidFields(),
+            $this->component->actions(Request::createFromGlobals()),
+            new HasValidActions(),
             $message
         );
 
