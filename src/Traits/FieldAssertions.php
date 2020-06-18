@@ -5,6 +5,8 @@ namespace JoshGaber\NovaUnit\Traits;
 use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Constraints\HasField;
 use JoshGaber\NovaUnit\Constraints\HasValidFields;
+use JoshGaber\NovaUnit\Lenses\MockLens;
+use JoshGaber\NovaUnit\Resources\MockResource;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 trait FieldAssertions
@@ -20,7 +22,7 @@ trait FieldAssertions
     {
         PHPUnit::assertThat(
             $this->component->fields(Request::createFromGlobals()),
-            new HasField($field),
+            new HasField($field, $this->allowPanels()),
             $message
         );
 
@@ -39,7 +41,7 @@ trait FieldAssertions
     {
         PHPUnit::assertThat(
             $this->component->fields(Request::createFromGlobals()),
-            PHPUnit::logicalNot(new HasField($field)),
+            PHPUnit::logicalNot(new HasField($field, $this->allowPanels())),
             $message
         );
 
@@ -68,10 +70,15 @@ trait FieldAssertions
     {
         PHPUnit::assertThat(
             $this->component->fields(Request::createFromGlobals()),
-            new HasValidFields(),
+            new HasValidFields($this->allowPanels()),
             $message
         );
 
         return $this;
+    }
+
+    private function allowPanels(): bool
+    {
+        return $this instanceof MockLens || $this instanceof MockResource;
     }
 }

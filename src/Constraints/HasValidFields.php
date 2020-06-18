@@ -3,10 +3,18 @@
 namespace JoshGaber\NovaUnit\Constraints;
 
 use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Panel;
 use PHPUnit\Framework\Constraint\Constraint;
 
 class HasValidFields extends Constraint
 {
+    private $allowPanels;
+
+    public function __construct(bool $allowPanels = false)
+    {
+        $this->allowPanels = $allowPanels;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -22,7 +30,11 @@ class HasValidFields extends Constraint
         }
 
         foreach ($other as $field) {
-            if (! $field instanceof Field) {
+            if ($this->allowPanels && $field instanceof Panel) {
+                if (! $this->matches($field->data)) {
+                    return false;
+                }
+            } elseif (! $field instanceof Field) {
                 return false;
             }
         }
