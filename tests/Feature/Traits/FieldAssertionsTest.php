@@ -3,14 +3,20 @@
 namespace JoshGaber\NovaUnit\Tests\Feature\Traits;
 
 use JoshGaber\NovaUnit\Actions\MockAction;
+use JoshGaber\NovaUnit\Lenses\MockLens;
+use JoshGaber\NovaUnit\Resources\MockResource;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionInvalidFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionInvalidFieldset;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionNoFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
+use JoshGaber\NovaUnit\Tests\Fixtures\Lenses\LensValidFieldsWithPanels;
+use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
+use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceValidFieldsWithPanels;
 use JoshGaber\NovaUnit\Tests\TestCase;
 
 class FieldAssertionsTest extends TestCase
 {
+    // region assertHasNoFields
     public function testItSucceedsIfActionHasNoFields()
     {
         $mock = new MockAction(new ActionNoFields());
@@ -24,9 +30,24 @@ class FieldAssertionsTest extends TestCase
         $mock->assertHasNoFields();
     }
 
+    // endregion
+
+    // region asssertHasValidFields
     public function testItSucceedsIfAllFieldsAreValid()
     {
         $mock = new MockAction(new ActionValidFields());
+        $mock->assertHasValidFields();
+    }
+
+    public function testItCanValidateAllFieldsOnResourcesWithPanels()
+    {
+        $mock = new MockResource(new ResourceValidFieldsWithPanels(new MockModel()));
+        $mock->assertHasValidFields();
+    }
+
+    public function testItCanValidateAllFieldsOnLensWithPanels()
+    {
+        $mock = new MockLens(new LensValidFieldsWithPanels(), MockModel::class);
         $mock->assertHasValidFields();
     }
 
@@ -44,6 +65,9 @@ class FieldAssertionsTest extends TestCase
         $mock->assertHasValidFields();
     }
 
+    // endregion
+
+    // region assertHasField
     public function testItSucceedsWhenSearchingForFieldByName()
     {
         $mock = new MockAction(new ActionValidFields());
@@ -54,6 +78,18 @@ class FieldAssertionsTest extends TestCase
     {
         $mock = new MockAction(new ActionValidFields());
         $mock->assertHasField('field_alpha');
+    }
+
+    public function testItCanSearchResourcesForFieldRecursively()
+    {
+        $mock = new MockResource(new ResourceValidFieldsWithPanels(new MockModel()));
+        $mock->assertHasField('field_beta');
+    }
+
+    public function testItCanSearchLensesForFieldRecursively()
+    {
+        $mock = new MockLens(new LensValidFieldsWithPanels(), MockModel::class);
+        $mock->assertHasField('field_beta');
     }
 
     public function testItFailsWhenSearchingForFieldByAttributeCaseSensitive()
@@ -70,6 +106,9 @@ class FieldAssertionsTest extends TestCase
         $mock->assertHasField('gamma');
     }
 
+    // endregion
+
+    // region assertFieldMissing
     public function testItSucceedsWhenNoFieldMatchesByNameOrAttribute()
     {
         $mock = new MockAction(new ActionValidFields());
@@ -95,4 +134,6 @@ class FieldAssertionsTest extends TestCase
         $mock = new MockAction(new ActionValidFields());
         $mock->assertFieldMissing('alpha');
     }
+
+    // endregion
 }
