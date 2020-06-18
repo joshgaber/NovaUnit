@@ -4,12 +4,16 @@ filter:
 build:
     nodes:
         analysis:
+            requires:
+                -   branch: /^(master)|(release)/i
             tests:
                 override: [php-scrutinizer-run]
         coverage:
+            requires:
+                -   branch: /^(master)|(release)/i
             tests:
                 override:
-                    - command: ./vendor/bin/phpunit --coverage-clover coverage/clover.xml
-                      coverage:
-                          file: coverage/clover.xml
-                          format: clover
+                    -   command: ./vendor/bin/phpunit --coverage-clover coverage/clover.xml
+                        coverage:
+                            file: coverage/clover.xml
+                            format: clover
