@@ -5,9 +5,13 @@ namespace JoshGaber\NovaUnit\Traits;
 use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Constraints\HasField;
 use JoshGaber\NovaUnit\Constraints\HasValidFields;
+use JoshGaber\NovaUnit\Fields\FieldHelper;
+use JoshGaber\NovaUnit\Fields\FieldNotFoundException;
+use JoshGaber\NovaUnit\Fields\MockFieldElement;
 use JoshGaber\NovaUnit\Lenses\MockLens;
 use JoshGaber\NovaUnit\Resources\MockResource;
 use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Framework\Constraint\IsType;
 
 trait FieldAssertions
 {
@@ -70,11 +74,36 @@ trait FieldAssertions
     {
         PHPUnit::assertThat(
             $this->component->fields(Request::createFromGlobals()),
-            new HasValidFields($this->allowPanels()),
+            PHPUnit::logicalAnd(
+                new IsType(IsType::TYPE_ARRAY),
+                new HasValidFields($this->allowPanels())
+            ),
             $message
         );
 
         return $this;
+    }
+
+    /**
+     * Searches for a matching field instance on this component for testing.
+     *
+     * @param string $fieldName The name or attribute of the field to return
+     * @return MockFieldElement
+     * @throws FieldNotFoundException
+     */
+    public function field(string $fieldName): MockFieldElement
+    {
+        $field = FieldHelper::findField(
+            $this->component->fields(Request::createFromGlobals()),
+            $fieldName,
+            $this->allowPanels()
+        );
+
+        if (is_null($field)) {
+            throw new FieldNotFoundException();
+        }
+
+        return new MockFieldElement($field);
     }
 
     private function allowPanels(): bool

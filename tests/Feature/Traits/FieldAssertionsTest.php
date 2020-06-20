@@ -3,6 +3,8 @@
 namespace JoshGaber\NovaUnit\Tests\Feature\Traits;
 
 use JoshGaber\NovaUnit\Actions\MockAction;
+use JoshGaber\NovaUnit\Fields\FieldNotFoundException;
+use JoshGaber\NovaUnit\Fields\MockFieldElement;
 use JoshGaber\NovaUnit\Lenses\MockLens;
 use JoshGaber\NovaUnit\Resources\MockResource;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionInvalidFields;
@@ -133,6 +135,23 @@ class FieldAssertionsTest extends TestCase
         $this->shouldFail();
         $mock = new MockAction(new ActionValidFields());
         $mock->assertFieldMissing('alpha');
+    }
+
+    // endregion
+
+    // region field
+    public function testItWillReturnAFieldMockOnExistingField()
+    {
+        $mock = new MockAction(new ActionValidFields());
+        $fieldMock = $mock->field('Alpha');
+        $this->assertInstanceOf(MockFieldElement::class, $fieldMock);
+    }
+
+    public function testItWillThrowExceptionIfMockingFieldThatDoesNotExist()
+    {
+        $this->expectException(FieldNotFoundException::class);
+        $mock = new MockAction(new ActionValidFields());
+        $mock->field('Not Exists');
     }
 
     // endregion

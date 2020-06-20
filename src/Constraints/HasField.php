@@ -2,8 +2,8 @@
 
 namespace JoshGaber\NovaUnit\Constraints;
 
+use JoshGaber\NovaUnit\Fields\FieldHelper;
 use Laravel\Nova\Fields\Field;
-use Laravel\Nova\Panel;
 use PHPUnit\Framework\Constraint\Constraint;
 
 class HasField extends Constraint
@@ -27,21 +27,6 @@ class HasField extends Constraint
 
     public function matches($other): bool
     {
-        foreach ($other as $field) {
-            if ($this->allowPanels && $field instanceof Panel) {
-                if ($this->matches($field->data)) {
-                    return true;
-                }
-            } elseif ($field instanceof Field) {
-                if (
-                    $field->attribute === $this->fieldName ||
-                    \mb_strtolower($field->name) === \mb_strtolower($this->fieldName)
-                ) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
+        return FieldHelper::findField($other, $this->fieldName, $this->allowPanels) instanceof Field;
     }
 }
