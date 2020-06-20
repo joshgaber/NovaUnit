@@ -4,8 +4,10 @@ namespace JoshGaber\NovaUnit\Traits;
 
 use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Constraints\ArrayHasInstanceOf;
-use JoshGaber\NovaUnit\Constraints\HasValidActions;
+use Laravel\Nova\Actions\Action;
 use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Framework\Constraint\IsType;
+use PHPUnit\Framework\Constraint\TraversableContainsOnly;
 
 trait ActionAssertions
 {
@@ -68,7 +70,10 @@ trait ActionAssertions
     {
         PHPUnit::assertThat(
             $this->component->actions(Request::createFromGlobals()),
-            new HasValidActions(),
+            PHPUnit::logicalAnd(
+                new IsType(IsType::TYPE_ARRAY),
+                new TraversableContainsOnly(Action::class, false)
+            ),
             $message
         );
 
