@@ -25,10 +25,6 @@ class HasValidFields extends Constraint
 
     public function matches($other): bool
     {
-        if (! \is_array($other)) {
-            return false;
-        }
-
         foreach ($other as $field) {
             if ($this->allowPanels && $field instanceof Panel) {
                 if (! $this->matches($field->data)) {
