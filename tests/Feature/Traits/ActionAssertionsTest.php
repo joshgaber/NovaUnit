@@ -2,10 +2,13 @@
 
 namespace JoshGaber\NovaUnit\Tests\Feature\Traits;
 
+use JoshGaber\NovaUnit\Actions\ActionNotFoundException;
+use JoshGaber\NovaUnit\Actions\MockActionElement;
 use JoshGaber\NovaUnit\Resources\MockResource;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionInvalidFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
+use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceForActionTests;
 use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceInvalidFieldsAndActions;
 use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceInvalidFieldsetAndActionSet;
 use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceNoFieldsOrActions;
@@ -72,4 +75,21 @@ class ActionAssertionsTest extends TestCase
         $mock = new MockResource(new ResourceValidFieldsAndActions(new MockModel()));
         $mock->assertActionMissing(ActionValidFields::class);
     }
+
+    // region field
+    public function testItWillReturnAFieldMockOnExistingField()
+    {
+        $mock = new MockResource(new ResourceForActionTests(new MockModel));
+        $fieldMock = $mock->action(ActionValidFields::class);
+        $this->assertInstanceOf(MockActionElement::class, $fieldMock);
+    }
+
+    public function testItWillThrowExceptionIfMockingFieldThatDoesNotExist()
+    {
+        $this->expectException(ActionNotFoundException::class);
+        $mock = new MockResource(new ResourceForActionTests(new MockModel));
+        $mock->action(\stdClass::class);
+    }
+
+    // endregion
 }

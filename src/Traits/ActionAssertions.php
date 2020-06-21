@@ -3,6 +3,8 @@
 namespace JoshGaber\NovaUnit\Traits;
 
 use Illuminate\Http\Request;
+use JoshGaber\NovaUnit\Actions\ActionNotFoundException;
+use JoshGaber\NovaUnit\Actions\MockActionElement;
 use JoshGaber\NovaUnit\Constraints\ArrayHasInstanceOf;
 use Laravel\Nova\Actions\Action;
 use PHPUnit\Framework\Assert as PHPUnit;
@@ -78,5 +80,28 @@ trait ActionAssertions
         );
 
         return $this;
+    }
+
+    /**
+     * Searches for a matching action instance on this component for testing.
+     *
+     * @param string $actionType The class name of the Action
+     * @return MockActionElement
+     * @throws ActionNotFoundException
+     */
+    public function action(string $actionType): MockActionElement
+    {
+        $actions = array_filter(
+            $this->component->actions(Request::createFromGlobals()),
+            function ($a) use ($actionType) {
+                return $a instanceof $actionType;
+            }
+        );
+
+        if (count($actions) === 0) {
+            throw new ActionNotFoundException();
+        }
+
+        return new MockActionElement(array_shift($actions));
     }
 }
