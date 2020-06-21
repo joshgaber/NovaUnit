@@ -19,4 +19,9 @@ class ResourceNoFieldsOrActions extends Resource
     {
         return [];
     }
+
+    public function filters(Request $request)
+    {
+        return [];
+    }
 }

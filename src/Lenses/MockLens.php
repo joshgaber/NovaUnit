@@ -8,11 +8,12 @@ use JoshGaber\NovaUnit\Exceptions\InvalidModelException;
 use JoshGaber\NovaUnit\MockComponent;
 use JoshGaber\NovaUnit\Traits\ActionAssertions;
 use JoshGaber\NovaUnit\Traits\FieldAssertions;
+use JoshGaber\NovaUnit\Traits\FilterAssertions;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 class MockLens extends MockComponent
 {
-    use ActionAssertions, FieldAssertions;
+    use ActionAssertions, FieldAssertions, FilterAssertions;
 
     public $model;
 
