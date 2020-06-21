@@ -19,4 +19,9 @@ class ResourceInvalidFieldsetAndActionSet extends Resource
     {
         return 'actions';
     }
+
+    public function filters(Request $request)
+    {
+        return 'filters';
+    }
 }

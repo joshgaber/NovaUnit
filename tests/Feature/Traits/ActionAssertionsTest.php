@@ -23,7 +23,7 @@ class ActionAssertionsTest extends TestCase
         $mock->assertHasNoActions();
     }
 
-    public function testItFailsIfComponentHasFields()
+    public function testItFailsIfComponentHasActions()
     {
         $this->shouldFail();
         $mock = new MockResource(new ResourceValidFieldsAndActions(new MockModel()));
@@ -36,7 +36,7 @@ class ActionAssertionsTest extends TestCase
         $mock->assertHasValidActions();
     }
 
-    public function testItFailsIfAtLeastOneFieldIsNotAValidField()
+    public function testItFailsIfAtLeastOneActionIsNotAValidAction()
     {
         $this->shouldFail();
         $mock = new MockResource(new ResourceInvalidFieldsAndActions(new MockModel()));
@@ -77,14 +77,14 @@ class ActionAssertionsTest extends TestCase
     }
 
     // region field
-    public function testItWillReturnAFieldMockOnExistingField()
+    public function testItWillReturnAnActionMockOnExistingField()
     {
         $mock = new MockResource(new ResourceForActionTests(new MockModel));
         $fieldMock = $mock->action(ActionValidFields::class);
         $this->assertInstanceOf(MockActionElement::class, $fieldMock);
     }
 
-    public function testItWillThrowExceptionIfMockingFieldThatDoesNotExist()
+    public function testItWillThrowExceptionIfMockingActionThatDoesNotExist()
     {
         $this->expectException(ActionNotFoundException::class);
         $mock = new MockResource(new ResourceForActionTests(new MockModel));

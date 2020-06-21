@@ -5,6 +5,8 @@ namespace JoshGaber\NovaUnit\Tests\Fixtures\Resources;
 use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionNoFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
+use JoshGaber\NovaUnit\Tests\Fixtures\Filters\FakeBooleanFilter;
+use JoshGaber\NovaUnit\Tests\Fixtures\Filters\FakeSelectFilter;
 use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
@@ -27,6 +29,14 @@ class ResourceValidFieldsAndActions extends Resource
         return [
             new ActionValidFields(),
             new ActionNoFields(),
+        ];
+    }
+
+    public function filters(Request $request)
+    {
+        return [
+            new FakeSelectFilter(),
+            new FakeBooleanFilter(),
         ];
     }
 }
