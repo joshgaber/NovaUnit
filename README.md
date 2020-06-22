@@ -7,7 +7,7 @@
 [![StyleCI](https://github.styleci.io/repos/261879333/shield)](https://github.styleci.io/repos/261879333)
 [![Total Downloads](https://img.shields.io/packagist/dt/joshgaber/novaunit.svg?style=flat-square)](https://packagist.org/packages/joshgaber/novaunit)
 
-NovaUnit is a unit-testing package for Laravel Nova, built using PHPUnit. NovaUnit provides you with assertions for Nova Actions, Lenses and Resources, so you can create great administration panels with confidence.
+[NovaUnit](https://joshgaber.github.io/NovaUnit) is a unit-testing package for Laravel Nova, built using PHPUnit. NovaUnit provides you with assertions for Nova Actions, Lenses and Resources, so you can create great administration panels with confidence.
 
 ## Installation
 
@@ -34,8 +34,6 @@ class ClearLogsTest extends TestCase {
 }
 ```
 
-Currently, there are three traits: `NovaActionTest`, `NovaLensTest` and `NovaResourceTest`. To test these components, invoke the respective test class (ie. `novaAction` for Actions).
-
 Once you've created the mock with the initial test class, you can begin testing different aspect of the component:
 
 ```php
@@ -43,7 +41,7 @@ $this->novaAction(ClearLogs::class)
     ->assertHasField('since_date');
 ```
 
-For a list of available methods, see the [full docs site](https://joshgaber.github.io/NovaUnit/index.html).
+For a list of available methods, see the [full docs site](https://joshgaber.github.io/NovaUnit).
 
 ### Changelog
 

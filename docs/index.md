@@ -36,4 +36,10 @@ $this->novaAction(ClearLogs::class)
     ->assertHasField('since_date');
 ```
 
-To see a full list of methods available, [click here](methods.md).
+## Available Methods
+
+* [Action Methods](actions.md)
+* [Field Methods](fields.md)
+* [Filter Methods](filters.md)
+* [Lens Methods](lenses.md)
+* [Resource Methods](resources.md)

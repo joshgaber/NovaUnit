@@ -98,6 +98,8 @@ class MockLens extends MockComponent
     }
 
     /**
+     * Apply lens query and test the response.
+     *
      * @param string|null $model
      * @return MockLensQuery
      * @throws InvalidModelException
