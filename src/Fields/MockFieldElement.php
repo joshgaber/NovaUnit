@@ -43,6 +43,66 @@ class MockFieldElement
     }
 
     /**
+     * Assert that the following rule can be found on the field when a
+     * resource being created.
+     *
+     * @param string $rule The rule to match this field against
+     * @param string $message
+     * @return $this
+     */
+    public function assertHasCreationRule(string $rule, string $message = ''): self
+    {
+        PHPUnit::assertContains($rule, $this->field->creationRules, $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert that the following rule cannot be found on the field when a
+     * resource being created.
+     *
+     * @param string $rule The rule to match this field against
+     * @param string $message
+     * @return $this
+     */
+    public function assertCreationRuleMissing(string $rule, string $message = ''): self
+    {
+        PHPUnit::assertNotContains($rule, $this->field->creationRules, $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert that the following rule can be found on the field when a
+     * resource being updated.
+     *
+     * @param string $rule The rule to match this field against
+     * @param string $message
+     * @return $this
+     */
+    public function assertHasUpdateRule(string $rule, string $message = ''): self
+    {
+        PHPUnit::assertContains($rule, $this->field->updateRules, $message);
+
+        return $this;
+    }
+
+    /**
+     * Assert that the following rule cannot be found on the field when a
+     * resource being created.
+     *
+     * @param string $rule The rule to match this field against
+     * @param string $message
+     * @return $this
+     */
+    public function assertUpdateRuleMissing(string $rule, string $message = ''): self
+    {
+        PHPUnit::assertNotContains($rule, $this->field->updateRules, $message);
+
+        return $this;
+    }
+
+    /**
      * Assert that the field can be shown on the index view.
      *
      * @param string $message
