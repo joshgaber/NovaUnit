@@ -27,7 +27,7 @@ class ResourceForFieldTests extends Resource
                 ->nullable()->sortable(),
             Text::make('Epsilon', 'field_epsilon')
                 ->creationRules('min:8')
-                ->updateRules('min:16')
+                ->updateRules('min:16'),
         ];
     }
 
