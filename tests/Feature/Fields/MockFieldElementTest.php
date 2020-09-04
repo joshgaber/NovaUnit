@@ -43,6 +43,58 @@ class MockFieldElementTest extends TestCase
 
     // endregion
 
+    // region assertHasCreationRule
+    public function testItSucceedsIfFieldHasTheSpecifiedCreationRule()
+    {
+        $this->mock->field('Epsilon')->assertHasCreationRule('min:8');
+    }
+
+    public function testItFailsIfFieldDoesNotHaveTheSpecifiedCreationRule()
+    {
+        $this->shouldFail()->mock->field('Epsilon')->assertHasCreationRule('min:100');
+    }
+
+    // endregion
+
+    // region assertCreationRuleMissing
+    public function testItSucceedsIfSpecifiedCreationRuleMissingFromField()
+    {
+        $this->mock->field('Epsilon')->assertCreationRuleMissing('min:100');
+    }
+
+    public function testItFailsIfSpecifiedCreationRuleNotMissingFromField()
+    {
+        $this->shouldFail()->mock->field('Epsilon')->assertCreationRuleMissing('min:8');
+    }
+
+    // endregion
+
+    // region assertHasUpdateRule
+    public function testItSucceedsIfFieldHasTheSpecifiedUpdateRule()
+    {
+        $this->mock->field('Epsilon')->assertHasUpdateRule('min:16');
+    }
+
+    public function testItFailsIfFieldDoesNotHaveTheSpecifiedUpdateRule()
+    {
+        $this->shouldFail()->mock->field('Epsilon')->assertHasUpdateRule('min:100');
+    }
+
+    // endregion
+
+    // region assertUpdateRuleMissing
+    public function testItSucceedsIfSpecifiedUpdateRuleMissingFromField()
+    {
+        $this->mock->field('Epsilon')->assertUpdateRuleMissing('min:100');
+    }
+
+    public function testItFailsIfSpecifiedUpdateRuleNotMissingFromField()
+    {
+        $this->shouldFail()->mock->field('Epsilon')->assertUpdateRuleMissing('min:16');
+    }
+
+    // endregion
+
     // region assertShownOnIndex
     public function testItSucceedsIfFieldIsShownOnIndex()
     {

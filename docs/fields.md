@@ -66,7 +66,40 @@ Asserts that the following rule is being applied to the value of this field. Thi
 ```php
 $field->assertRuleMissing('required');
 ```
+
 Asserts that the following rule is not being applied to the value of this field. This assertion only works on string-type rules, not closures.
+
+### `assertHasCreationRule($rule)`
+
+```php
+$field->assertHasCreationRule('required');
+```
+
+Asserts that the following rule is being applied to the value of this field when a resource is created. This assertion only works on string-type rules, not closures.
+
+### `assertCreationRuleMissing($rule)`
+
+```php
+$field->assertCreationRuleMissing('required');
+```
+
+Asserts that the following rule is not being applied to the value of this field when a resource is created. This assertion only works on string-type rules, not closures.
+
+### `assertHasUpdateRule($rule)`
+
+```php
+$field->assertHasUpdateRule('required');
+```
+
+Asserts that the following rule is being applied to the value of this field when a resource is updated. This assertion only works on string-type rules, not closures.
+
+### `assertUpdateRuleMissing($rule)`
+
+```php
+$field->assertUpdateRuleMissing('required');
+```
+
+Asserts that the following rule is not being applied to the value of this field when a resource is updated. This assertion only works on string-type rules, not closures.
 
 ### `assertShownOnIndex()`
 
