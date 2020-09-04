@@ -25,6 +25,9 @@ class ResourceForFieldTests extends Resource
                 ->hideFromIndex()->hideFromDetail()->hideWhenCreating()->hideWhenUpdating(),
             Text::make('Delta', 'field_delta')
                 ->nullable()->sortable(),
+            Text::make('Epsilon', 'field_epsilon')
+                ->creationRules('min:8')
+                ->updateRules('min:16')
         ];
     }
 
