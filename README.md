@@ -55,9 +55,13 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 If you discover any security related issues, please email joshgaber@gmail.com instead of using the issue tracker.
 
-## Credits
+## Created By
 
-- [Josh Gaber](https://github.com/joshgaber)
+* [Josh Gaber](https://github.com/joshgaber) (Creator & Maintainer)
+
+## Contributors
+
+* [Joshua Lauwrich Nandy](https://github.com/joshua060198)
 
 ## License
 
