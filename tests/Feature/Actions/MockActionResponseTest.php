@@ -138,4 +138,11 @@ class MockActionResponseTest extends TestCase
         $mockActionResponse = new MockActionResponse(Action::message('Test Message'));
         $mockActionResponse->assertDangerContains('test');
     }
+
+    public function testItFailsOnNoResponse()
+    {
+        $this->shouldFail();
+        $mockActionResponse = new MockActionResponse();
+        $mockActionResponse->assertResponseType('message');
+    }
 }

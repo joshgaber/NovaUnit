@@ -4,12 +4,13 @@ namespace JoshGaber\NovaUnit\Actions;
 
 use JoshGaber\NovaUnit\Constraints\IsActionResponseType;
 use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Framework\Constraint\IsType;
 
 class MockActionResponse
 {
     private $response;
 
-    public function __construct($response)
+    public function __construct($response = null)
     {
         $this->response = $response;
     }
@@ -25,7 +26,10 @@ class MockActionResponse
     {
         PHPUnit::assertThat(
             $this->response,
-            new IsActionResponseType($type),
+            PHPUnit::logicalAnd(
+                new IsType('array'),
+                new IsActionResponseType($type)
+            ),
             $message
         );
 
