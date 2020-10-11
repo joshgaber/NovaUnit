@@ -2,6 +2,11 @@
 
 All notable changes to NovaUnit will be documented in this file.
 
+## 1.2 - 2020-10-11
+
+- Added assertion method for checking creation and update rules
+- **bugfix**: Report invalid action response as an assertion failure
+
 ## 1.1 - 2020-06-22
 
 - Added assertions on Lens query results have been moved to their own class
