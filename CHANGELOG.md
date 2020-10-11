@@ -2,6 +2,15 @@
 
 All notable changes to NovaUnit will be documented in this file.
 
+## 2.1
+
+- Added assertion method for checking creation and update rules
+- **bugfix**: Report invalid action response as an assertion failure
+
+## 2.0
+
+- Compatibility with Laravel 8
+
 ## 1.1 - 2020-06-22
 
 - Added assertions on Lens query results have been moved to their own class
