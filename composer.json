@@ -1,7 +1,7 @@
 {
     "name": "joshgaber/novaunit",
     "description": "Unit testing suite for Laravel Nova, built to extend PHPUnit",
-    "version": "2.1",
+    "version": "2.2",
     "keywords": [
         "laravel",
         "nova",
@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3 || ^8.0",
         "ext-mbstring": "*",
         "cakephp/chronos": ">=1.2.3",
         "illuminate/support": "^8.0",
