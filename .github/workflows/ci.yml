@@ -1,0 +1,32 @@
+name: Linting and Tests
+
+on:
+    pull_request:
+        branches: [master, release/*]
+        paths-ignore:
+            - "**/*.md"
+            - "*.md"
+            - "**/*.json"
+
+jobs:
+    laravel-tests:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                php: ['7.3', '7.4', '8.0']
+                composer_flags: ['', '--prefer-lowest']
+
+        steps:
+            - uses: actions/checkout@v2
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+            - name: Copy .env.testing
+              run: php -r "file_exists('.env.testing') || copy('.env.testing.example', '.env.testing');"
+            - name: Set Nova credentials
+              run: echo '${{ secrets.NOVA_CREDENTIALS }}' > auth.json
+            - name: Install Dependencies
+              run: composer update --no-interaction --prefer-source ${{ matrix.composer_flags }}
+            - name: Execute tests (Unit and Feature tests) via PHPUnit
+              run: ./vendor/bin/phpunit
