@@ -18,7 +18,7 @@ class TestClass extends TestCase
 }
 ```
 
-The following assertions can be run on the Nova Filter:
+The following assertions can be run on the Nova Lens:
 
 * [Action Tests](actions.md#testing-actions-on-components)
 * [Field Tests](fields.md#testing-fields-on-components)
