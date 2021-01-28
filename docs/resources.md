@@ -11,14 +11,14 @@ class TestClass extends TestCase
 {
     use NovaResourceTest;
 
-    public function testNovaLens()
+    public function testNovaResource()
     {
         $resource = $this->novaResource(UserResource::class);
     }
 }
 ```
 
-The following assertions can be run on the Nova Filter:
+The following assertions can be run on the Nova Resource:
 
 * [Action Tests](actions.md#testing-actions-on-components)
 * [Field Tests](fields.md#testing-fields-on-components)
