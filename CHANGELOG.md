@@ -2,6 +2,14 @@
 
 All notable changes to NovaUnit will be documented in this file.
 
+## 2.3
+
+- Compatibility with Laravel 9
+
+## 2.2
+
+- Support for PHP 8
+
 ## 2.1
 
 - Added assertion method for checking creation and update rules
