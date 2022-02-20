@@ -16,8 +16,8 @@ trait ActionAssertions
     /**
      * Asserts that this component has the specified field.
      *
-     * @param string $action The class path of the Action
-     * @param string $message
+     * @param  string  $action  The class path of the Action
+     * @param  string  $message
      * @return $this
      */
     public function assertHasAction(string $action, string $message = ''): self
@@ -34,8 +34,8 @@ trait ActionAssertions
     /**
      * Asserts that this component does not have the specified field.
      *
-     * @param string $action The class path of the Action
-     * @param string $message
+     * @param  string  $action  The class path of the Action
+     * @param  string  $message
      * @return $this
      */
     public function assertActionMissing(string $action, string $message = ''): self
@@ -52,7 +52,7 @@ trait ActionAssertions
     /**
      * Asserts that this component has no Actions specified.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertHasNoActions(string $message = ''): self
@@ -65,7 +65,7 @@ trait ActionAssertions
     /**
      * Asserts that all actions on this component are valid Actions.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertHasValidActions(string $message = ''): self
@@ -85,8 +85,9 @@ trait ActionAssertions
     /**
      * Searches for a matching action instance on this component for testing.
      *
-     * @param string $actionType The class name of the Action
+     * @param  string  $actionType  The class name of the Action
      * @return MockActionElement
+     *
      * @throws ActionNotFoundException
      */
     public function action(string $actionType): MockActionElement

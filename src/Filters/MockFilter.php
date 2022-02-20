@@ -19,7 +19,7 @@ class MockFilter extends MockComponent
     /**
      * Assert that the subject filter is a select filter.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertSelectFilter(string $message = ''): self
@@ -40,7 +40,7 @@ class MockFilter extends MockComponent
     /**
      * Assert that the subject filter is a boolean filter.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertBooleanFilter(string $message = ''): self
@@ -53,7 +53,7 @@ class MockFilter extends MockComponent
     /**
      * Assert that the subject filter is a date filter.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertDateFilter(string $message = ''): self
@@ -66,8 +66,8 @@ class MockFilter extends MockComponent
     /**
      * Assert that the filter has the given option.
      *
-     * @param string $option The key or value of the option
-     * @param string $message
+     * @param  string  $option  The key or value of the option
+     * @param  string  $message
      * @return $this
      */
     public function assertHasOption(string $option, string $message = ''): self
@@ -87,8 +87,8 @@ class MockFilter extends MockComponent
     /**
      * Assert that the filter does not have the given option.
      *
-     * @param string $option The key or value of the option
-     * @param string $message
+     * @param  string  $option  The key or value of the option
+     * @param  string  $message
      * @return $this
      */
     public function assertOptionMissing(string $option, string $message = ''): self
@@ -110,9 +110,10 @@ class MockFilter extends MockComponent
     /**
      * Apply the filter with the provided value and allow tests on the result.
      *
-     * @param string $model The model that the filter should be applied to
-     * @param mixed|array $value The value returned by the filter
+     * @param  string  $model  The model that the filter should be applied to
+     * @param  mixed|array  $value  The value returned by the filter
      * @return MockFilterQuery
+     *
      * @throws InvalidModelException If the class provided is not a valid model class
      */
     public function apply(string $model, $value): MockFilterQuery

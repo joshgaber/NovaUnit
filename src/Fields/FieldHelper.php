@@ -10,9 +10,9 @@ class FieldHelper
     /**
      * Finds the first field with a name or attribute matching the given name.
      *
-     * @param array $fields The list of fields to search
-     * @param string $fieldName The name or attribute of the field to match
-     * @param bool $allowPanels Whether fields inside panels should also be searched
+     * @param  array  $fields  The list of fields to search
+     * @param  string  $fieldName  The name or attribute of the field to match
+     * @param  bool  $allowPanels  Whether fields inside panels should also be searched
      * @return Field|null The first matching field if found, or null if not
      */
     public static function findField(array $fields, string $fieldName, bool $allowPanels = false): ?Field
@@ -34,8 +34,8 @@ class FieldHelper
     /**
      * Determines whether the given field has a name or attribute matching the provided field name.
      *
-     * @param mixed $field The field
-     * @param string $fieldName the field name or attribute to match
+     * @param  mixed  $field  The field
+     * @param  string  $fieldName  the field name or attribute to match
      * @return bool
      */
     public static function fieldMatches($field, string $fieldName): bool

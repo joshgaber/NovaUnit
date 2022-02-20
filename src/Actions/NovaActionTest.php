@@ -9,8 +9,9 @@ trait NovaActionTest
     /**
      * Initialize the Nova Action mock.
      *
-     * @param string $action The class path of the Action
+     * @param  string  $action  The class path of the Action
      * @return MockAction The Action mock instance
+     *
      * @throws InvalidNovaActionException If the supplied action class is not a Nova Action
      */
     public static function novaAction(string $action): MockAction

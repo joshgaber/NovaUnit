@@ -28,8 +28,8 @@ class MockLens extends MockComponent
      *
      * @deprecated
      *
-     * @param Model $element The model contained in the query result
-     * @param string $message
+     * @param  Model  $element  The model contained in the query result
+     * @param  string  $message
      * @return $this
      */
     public function assertQueryContains(Model $element, string $message = ''): self
@@ -48,8 +48,8 @@ class MockLens extends MockComponent
      *
      * @deprecated
      *
-     * @param Model $element The model not contained in the query result
-     * @param string $message
+     * @param  Model  $element  The model not contained in the query result
+     * @param  string  $message
      * @return $this
      */
     public function assertQueryMissing(Model $element, string $message = ''): self
@@ -68,7 +68,7 @@ class MockLens extends MockComponent
      *
      * @deprecated
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertQueryWithFilters(string $message = ''): self
@@ -85,7 +85,7 @@ class MockLens extends MockComponent
      *
      * @deprecated
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertQueryWithOrdering(string $message = ''): self
@@ -100,8 +100,9 @@ class MockLens extends MockComponent
     /**
      * Apply lens query and test the response.
      *
-     * @param string|null $model
+     * @param  string|null  $model
      * @return MockLensQuery
+     *
      * @throws InvalidModelException
      */
     public function query(?string $model = null): MockLensQuery

@@ -17,8 +17,8 @@ class MockFieldElement
     /**
      * Assert that the following rule can be found on the field.
      *
-     * @param string $rule The rule to match this field against
-     * @param string $message
+     * @param  string  $rule  The rule to match this field against
+     * @param  string  $message
      * @return $this
      */
     public function assertHasRule(string $rule, string $message = ''): self
@@ -31,8 +31,8 @@ class MockFieldElement
     /**
      * Assert that the following rule cannot be found on the field.
      *
-     * @param string $rule The rule to match this field against
-     * @param string $message
+     * @param  string  $rule  The rule to match this field against
+     * @param  string  $message
      * @return $this
      */
     public function assertRuleMissing(string $rule, string $message = ''): self
@@ -46,8 +46,8 @@ class MockFieldElement
      * Assert that the following rule can be found on the field when a
      * resource being created.
      *
-     * @param string $rule The rule to match this field against
-     * @param string $message
+     * @param  string  $rule  The rule to match this field against
+     * @param  string  $message
      * @return $this
      */
     public function assertHasCreationRule(string $rule, string $message = ''): self
@@ -61,8 +61,8 @@ class MockFieldElement
      * Assert that the following rule cannot be found on the field when a
      * resource being created.
      *
-     * @param string $rule The rule to match this field against
-     * @param string $message
+     * @param  string  $rule  The rule to match this field against
+     * @param  string  $message
      * @return $this
      */
     public function assertCreationRuleMissing(string $rule, string $message = ''): self
@@ -76,8 +76,8 @@ class MockFieldElement
      * Assert that the following rule can be found on the field when a
      * resource being updated.
      *
-     * @param string $rule The rule to match this field against
-     * @param string $message
+     * @param  string  $rule  The rule to match this field against
+     * @param  string  $message
      * @return $this
      */
     public function assertHasUpdateRule(string $rule, string $message = ''): self
@@ -91,8 +91,8 @@ class MockFieldElement
      * Assert that the following rule cannot be found on the field when a
      * resource being created.
      *
-     * @param string $rule The rule to match this field against
-     * @param string $message
+     * @param  string  $rule  The rule to match this field against
+     * @param  string  $message
      * @return $this
      */
     public function assertUpdateRuleMissing(string $rule, string $message = ''): self
@@ -105,7 +105,7 @@ class MockFieldElement
     /**
      * Assert that the field can be shown on the index view.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertShownOnIndex(string $message = ''): self
@@ -122,7 +122,7 @@ class MockFieldElement
     /**
      * Assert that the field is hidden from the index view.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertHiddenFromIndex(string $message = ''): self
@@ -139,7 +139,7 @@ class MockFieldElement
     /**
      * Assert that the field can be shown on the detail view.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertShownOnDetail(string $message = ''): self
@@ -156,7 +156,7 @@ class MockFieldElement
     /**
      * Assert that the field is hidden from the detail view.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertHiddenFromDetail(string $message = ''): self
@@ -173,7 +173,7 @@ class MockFieldElement
     /**
      * Assert that the field can be shown when creating a new record.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertShownWhenCreating(string $message = ''): self
@@ -190,7 +190,7 @@ class MockFieldElement
     /**
      * Assert that the field is hidden when creating a new record.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertHiddenWhenCreating(string $message = ''): self
@@ -207,7 +207,7 @@ class MockFieldElement
     /**
      * Assert that the field can be shown when updating a record.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertShownWhenUpdating(string $message = ''): self
@@ -224,7 +224,7 @@ class MockFieldElement
     /**
      * Assert that the field is hidden when updating a record.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertHiddenWhenUpdating(string $message = ''): self
@@ -241,7 +241,7 @@ class MockFieldElement
     /**
      * Assert that the field should be set to null if the value is empty.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertNullable(string $message = ''): self
@@ -254,7 +254,7 @@ class MockFieldElement
     /**
      * Assert that the field should not be set to null if the value is empty.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertNotNullable(string $message = ''): self
@@ -267,7 +267,7 @@ class MockFieldElement
     /**
      * Assert that records can be sorted by this field.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertSortable(string $message = ''): self
@@ -280,7 +280,7 @@ class MockFieldElement
     /**
      * Assert that records cannot be sorted by this field.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertNotSortable(string $message = ''): self

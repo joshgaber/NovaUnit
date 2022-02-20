@@ -9,8 +9,9 @@ trait NovaFilterTest
     /**
      * Initialize the Nova Filter mock.
      *
-     * @param string $filter The class path of the Filter
+     * @param  string  $filter  The class path of the Filter
      * @return MockFilter The Filter mock instance
+     *
      * @throws InvalidNovaFilterException If the supplied action class is not a Nova Filter
      */
     public static function novaFilter(string $filter): MockFilter

@@ -16,8 +16,8 @@ class MockAction extends MockComponent
     /**
      * Dispatches the Action, and returns a test handler for the Action response.
      *
-     * @param array $fields A set of action fields send to the Action, as a key-value array
-     * @param Model|Model[]|Collection $models A set of models sent to the Action
+     * @param  array  $fields  A set of action fields send to the Action, as a key-value array
+     * @param  Model|Model[]|Collection  $models  A set of models sent to the Action
      * @return MockActionResponse A mock class for testing Nova Action responses
      */
     public function handle(array $fields, $models): MockActionResponse

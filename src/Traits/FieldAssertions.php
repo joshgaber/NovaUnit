@@ -18,8 +18,8 @@ trait FieldAssertions
     /**
      * Checks that this Nova component has a field with the same name or attribute.
      *
-     * @param string $field The name or attribute of the field
-     * @param string $message
+     * @param  string  $field  The name or attribute of the field
+     * @param  string  $message
      * @return $this
      */
     public function assertHasField(string $field, string $message = ''): self
@@ -37,8 +37,8 @@ trait FieldAssertions
      * Checks that no field on this Nova component has a name or attribute matching
      * the given parameter.
      *
-     * @param string $field
-     * @param string $message
+     * @param  string  $field
+     * @param  string  $message
      * @return $this
      */
     public function assertFieldMissing(string $field, string $message = ''): self
@@ -54,7 +54,8 @@ trait FieldAssertions
 
     /**
      * Asserts that this Nova Action has no fields defined.
-     * @param string $message
+     *
+     * @param  string  $message
      * @return $this
      */
     public function assertHasNoFields(string $message = ''): self
@@ -67,7 +68,7 @@ trait FieldAssertions
     /**
      * Asserts that all fields defined on this Nova Action are valid fields.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertHasValidFields(string $message = ''): self
@@ -87,8 +88,9 @@ trait FieldAssertions
     /**
      * Searches for a matching field instance on this component for testing.
      *
-     * @param string $fieldName The name or attribute of the field to return
+     * @param  string  $fieldName  The name or attribute of the field to return
      * @return MockFieldElement
+     *
      * @throws FieldNotFoundException
      */
     public function field(string $fieldName): MockFieldElement

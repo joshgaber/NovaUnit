@@ -14,8 +14,8 @@ trait FilterAssertions
     /**
      * Asserts that this component has the specified field.
      *
-     * @param string $action The class path of the Filter
-     * @param string $message
+     * @param  string  $action  The class path of the Filter
+     * @param  string  $message
      * @return $this
      */
     public function assertHasFilter(string $action, string $message = ''): self
@@ -32,8 +32,8 @@ trait FilterAssertions
     /**
      * Asserts that this component does not have the specified field.
      *
-     * @param string $action The class path of the Filter
-     * @param string $message
+     * @param  string  $action  The class path of the Filter
+     * @param  string  $message
      * @return $this
      */
     public function assertFilterMissing(string $action, string $message = ''): self
@@ -50,7 +50,7 @@ trait FilterAssertions
     /**
      * Asserts that this component has no Filters specified.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertHasNoFilters(string $message = ''): self
@@ -63,7 +63,7 @@ trait FilterAssertions
     /**
      * Asserts that all filters on this component are valid Filters.
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertHasValidFilters(string $message = ''): self

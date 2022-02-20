@@ -18,8 +18,8 @@ class MockActionResponse
     /**
      * Asserts the handle response is of the given type.
      *
-     * @param string $type
-     * @param string $message
+     * @param  string  $type
+     * @param  string  $message
      * @return $this
      */
     public function assertResponseType(string $type, string $message = ''): self
@@ -39,7 +39,7 @@ class MockActionResponse
     /**
      * Asserts the handle response is of type "message".
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertMessage(string $message = ''): self
@@ -50,7 +50,7 @@ class MockActionResponse
     /**
      * Asserts the handle response is of type "danger".
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertDanger(string $message = ''): self
@@ -61,7 +61,7 @@ class MockActionResponse
     /**
      * Asserts the handle response is of type "deleted".
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertDeleted(string $message = ''): self
@@ -72,7 +72,7 @@ class MockActionResponse
     /**
      * Asserts the handle response is of type "redirect".
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertRedirect(string $message = ''): self
@@ -83,7 +83,7 @@ class MockActionResponse
     /**
      * Asserts the handle response is of type "push".
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertPush(string $message = ''): self
@@ -94,7 +94,7 @@ class MockActionResponse
     /**
      * Asserts the handle response is of type "openInNewTab".
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertOpenInNewTab(string $message = ''): self
@@ -105,7 +105,7 @@ class MockActionResponse
     /**
      * Asserts the handle response is of type "download".
      *
-     * @param string $message
+     * @param  string  $message
      * @return $this
      */
     public function assertDownload(string $message = ''): self
@@ -130,8 +130,8 @@ class MockActionResponse
     /**
      * Asserts the handle response is a "message" and contains the given text.
      *
-     * @param string $contents The text to assert is in the response
-     * @param string $message
+     * @param  string  $contents  The text to assert is in the response
+     * @param  string  $message
      * @return $this
      */
     public function assertMessageContains(string $contents, string $message = ''): self
@@ -142,8 +142,8 @@ class MockActionResponse
     /**
      * Asserts the handle response is a "danger" and contains the given text.
      *
-     * @param string $contents The text to assert is in the response
-     * @param string $message
+     * @param  string  $contents  The text to assert is in the response
+     * @param  string  $message
      * @return $this
      */
     public function assertDangerContains(string $contents, string $message = ''): self

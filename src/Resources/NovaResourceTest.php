@@ -10,9 +10,10 @@ trait NovaResourceTest
     /**
      * Initialize the Nova Resource mock.
      *
-     * @param string $class The class path of the Resource
-     * @param Model|null $model The object to apply to this Resource
+     * @param  string  $class  The class path of the Resource
+     * @param  Model|null  $model  The object to apply to this Resource
      * @return MockResource The Resource mock instance
+     *
      * @throws InvalidNovaResourceException If the supplied action class is not a Nova Resource
      */
     public static function novaResource(string $class, ?Model $model = null): MockResource
