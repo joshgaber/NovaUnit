@@ -72,11 +72,19 @@ class MockActionElement
      * @param  string  $message
      * @return $this
      */
-    public function assertShownOnTableRow(string $message = ''): self
+    public function assertShownInline(string $message = ''): self
     {
-        PHPUnit::assertTrue($this->action->showOnTableRow, $message);
+        PHPUnit::assertTrue($this->action->showInline, $message);
 
         return $this;
+    }
+
+    /**
+     * @deprecated
+     */
+    public function assertShownOnTableRow(string $message = ''): self
+    {
+        return $this->assertShownInline($message);
     }
 
     /**
@@ -85,10 +93,18 @@ class MockActionElement
      * @param  string  $message
      * @return $this
      */
-    public function assertHiddenFromTableRow(string $message = ''): self
+    public function assertNotShownInline(string $message = ''): self
     {
-        PHPUnit::assertFalse($this->action->showOnTableRow, $message);
+        PHPUnit::assertFalse($this->action->showInline, $message);
 
         return $this;
+    }
+
+    /**
+     * @deprecated
+     */
+    public function assertHiddenFromTableRow(string $message = ''): self
+    {
+        return $this->assertNotShownInline($message);
     }
 }

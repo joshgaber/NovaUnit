@@ -21,7 +21,7 @@ composer require --dev joshgaber/novaunit
 
 * PHP 7.3 or higher
 * [Laravel](https://laravel.com/) 6.x - 9.x
-* [Laravel Nova](https://nova.laravel.com/) 2.x - 3.x
+* [Laravel Nova](https://nova.laravel.com/) 2.x - 4.x
 * [PHPUnit](https://github.com/sebastianbergmann/phpunit) 8.5.x - 9.x
 
 ## Usage

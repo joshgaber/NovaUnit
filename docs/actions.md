@@ -187,18 +187,18 @@ $action->assertHiddenFromDetail();
 
 Asserts that the action will be hidden from this component's detail view.
 
-### `assertShownOnTableRow()`
+### `assertShownInline()`
 
 ```php
-$action->assertShownOnTableRow();
+$action->assertShownInline();
 ```
 
 Asserts that the action will be shown on this component's table row view.
 
-### `assertHiddenFromTableRow()`
+### `assertNotShownInline()`
 
 ```php
-$action->assertHiddenFromTableRow();
+$action->assertNotShownInline();
 ```
 
 Asserts that the action will be hidden from this component's table row view.
