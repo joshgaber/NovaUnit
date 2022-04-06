@@ -5,6 +5,7 @@ namespace JoshGaber\NovaUnit\Tests\Fixtures\Actions;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ActionValidFields extends Action
 {
@@ -13,7 +14,7 @@ class ActionValidFields extends Action
         return Action::message('Test Message');
     }
 
-    public function fields()
+    public function fields(NovaRequest $request)
     {
         return [
             Text::make('Alpha', 'field_alpha'),

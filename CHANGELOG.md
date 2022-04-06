@@ -2,6 +2,10 @@
 
 All notable changes to NovaUnit will be documented in this file.
 
+## 3.0
+
+- Compatibility with Laravel Nova 4
+
 ## 2.3
 
 - Compatibility with Laravel 9

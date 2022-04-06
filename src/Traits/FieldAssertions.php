@@ -2,7 +2,6 @@
 
 namespace JoshGaber\NovaUnit\Traits;
 
-use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Constraints\HasField;
 use JoshGaber\NovaUnit\Constraints\HasValidFields;
 use JoshGaber\NovaUnit\Fields\FieldHelper;
@@ -10,6 +9,7 @@ use JoshGaber\NovaUnit\Fields\FieldNotFoundException;
 use JoshGaber\NovaUnit\Fields\MockFieldElement;
 use JoshGaber\NovaUnit\Lenses\MockLens;
 use JoshGaber\NovaUnit\Resources\MockResource;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\Constraint\IsType;
 
@@ -25,7 +25,7 @@ trait FieldAssertions
     public function assertHasField(string $field, string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->fields(Request::createFromGlobals()),
+            $this->component->fields(NovaRequest::createFromGlobals()),
             new HasField($field, $this->allowPanels()),
             $message
         );
@@ -44,7 +44,7 @@ trait FieldAssertions
     public function assertFieldMissing(string $field, string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->fields(Request::createFromGlobals()),
+            $this->component->fields(NovaRequest::createFromGlobals()),
             PHPUnit::logicalNot(new HasField($field, $this->allowPanels())),
             $message
         );
@@ -60,7 +60,7 @@ trait FieldAssertions
      */
     public function assertHasNoFields(string $message = ''): self
     {
-        PHPUnit::assertCount(0, $this->component->fields(Request::createFromGlobals()), $message);
+        PHPUnit::assertCount(0, $this->component->fields(NovaRequest::createFromGlobals()), $message);
 
         return $this;
     }
@@ -74,7 +74,7 @@ trait FieldAssertions
     public function assertHasValidFields(string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->fields(Request::createFromGlobals()),
+            $this->component->fields(NovaRequest::createFromGlobals()),
             PHPUnit::logicalAnd(
                 new IsType(IsType::TYPE_ARRAY),
                 new HasValidFields($this->allowPanels())
@@ -96,7 +96,7 @@ trait FieldAssertions
     public function field(string $fieldName): MockFieldElement
     {
         $field = FieldHelper::findField(
-            $this->component->fields(Request::createFromGlobals()),
+            $this->component->fields(NovaRequest::createFromGlobals()),
             $fieldName,
             $this->allowPanels()
         );
