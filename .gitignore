@@ -2,11 +2,13 @@ build
 composer.lock
 vendor
 coverage
+clover.xml
 
 .idea
 
 auth.json
 
 .phpunit.result.cache
+.phpunit.result/
 .php_cs.cache
 .php-cs-fixer.cache

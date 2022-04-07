@@ -15,7 +15,7 @@ $rules = [
         'statements' => ['return'],
     ],
     'braces' => [
-        'position_after_anonymous_constructs' => 'next',
+        'position_after_anonymous_constructs' => 'same',
     ],
     'cast_spaces' => true,
     'class_attributes_separation' => [
