@@ -94,9 +94,7 @@ trait ActionAssertions
     {
         $actions = array_filter(
             $this->component->actions(Request::createFromGlobals()),
-            function ($a) use ($actionType) {
-                return $a instanceof $actionType;
-            }
+            fn ($a) => $a instanceof $actionType
         );
 
         if (count($actions) === 0) {
