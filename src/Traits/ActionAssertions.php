@@ -2,11 +2,11 @@
 
 namespace JoshGaber\NovaUnit\Traits;
 
-use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Actions\ActionNotFoundException;
 use JoshGaber\NovaUnit\Actions\MockActionElement;
 use JoshGaber\NovaUnit\Constraints\ArrayHasInstanceOf;
 use Laravel\Nova\Actions\Action;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\Constraint\IsType;
 use PHPUnit\Framework\Constraint\TraversableContainsOnly;
@@ -23,7 +23,7 @@ trait ActionAssertions
     public function assertHasAction(string $action, string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->actions(Request::createFromGlobals()),
+            $this->component->actions(NovaRequest::createFromGlobals()),
             new ArrayHasInstanceOf($action),
             $message
         );
@@ -41,7 +41,7 @@ trait ActionAssertions
     public function assertActionMissing(string $action, string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->actions(Request::createFromGlobals()),
+            $this->component->actions(NovaRequest::createFromGlobals()),
             PHPUnit::logicalNot(new ArrayHasInstanceOf($action)),
             $message
         );
@@ -57,7 +57,7 @@ trait ActionAssertions
      */
     public function assertHasNoActions(string $message = ''): self
     {
-        PHPUnit::assertCount(0, $this->component->actions(Request::createFromGlobals()), $message);
+        PHPUnit::assertCount(0, $this->component->actions(NovaRequest::createFromGlobals()), $message);
 
         return $this;
     }
@@ -74,7 +74,7 @@ trait ActionAssertions
             $this->component->actions(Request::createFromGlobals()),
             PHPUnit::logicalAnd(
                 new IsType(IsType::TYPE_ARRAY),
-                new TraversableContainsOnly(Action::class, false)
+                new TraversableContainsOnly(NovaRequest::class, false)
             ),
             $message
         );
@@ -93,7 +93,7 @@ trait ActionAssertions
     public function action(string $actionType): MockActionElement
     {
         $actions = array_filter(
-            $this->component->actions(Request::createFromGlobals()),
+            $this->component->actions(NovaRequest::createFromGlobals()),
             fn ($a) => $a instanceof $actionType
         );
 
