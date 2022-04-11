@@ -5,6 +5,7 @@ namespace JoshGaber\NovaUnit\Traits;
 use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Constraints\ArrayHasInstanceOf;
 use Laravel\Nova\Filters\Filter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\Constraint\IsType;
 use PHPUnit\Framework\Constraint\TraversableContainsOnly;
@@ -21,7 +22,7 @@ trait FilterAssertions
     public function assertHasFilter(string $action, string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->filters(Request::createFromGlobals()),
+            $this->component->filters(NovaRequest::createFromGlobals()),
             new ArrayHasInstanceOf($action),
             $message
         );
@@ -39,7 +40,7 @@ trait FilterAssertions
     public function assertFilterMissing(string $action, string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->filters(Request::createFromGlobals()),
+            $this->component->filters(NovaRequest::createFromGlobals()),
             PHPUnit::logicalNot(new ArrayHasInstanceOf($action)),
             $message
         );
@@ -69,7 +70,7 @@ trait FilterAssertions
     public function assertHasValidFilters(string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->filters(Request::createFromGlobals()),
+            $this->component->filters(NovaRequest::createFromGlobals()),
             PHPUnit::logicalAnd(
                 new IsType(IsType::TYPE_ARRAY),
                 new TraversableContainsOnly(Filter::class, false)
