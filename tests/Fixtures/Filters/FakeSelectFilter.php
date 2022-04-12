@@ -2,15 +2,15 @@
 
 namespace JoshGaber\NovaUnit\Tests\Fixtures\Filters;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class FakeSelectFilter extends Filter
 {
     /**
      * {@inheritdoc}
      */
-    public function apply(Request $request, $query, $value)
+    public function apply(NovaRequest $request, $query, $value)
     {
         return $query->where('text', $value);
     }
@@ -18,7 +18,7 @@ class FakeSelectFilter extends Filter
     /**
      * {@inheritdoc}
      */
-    public function options(Request $request)
+    public function options(NovaRequest $request)
     {
         return [
             'Alpha Choice' => 'alpha',

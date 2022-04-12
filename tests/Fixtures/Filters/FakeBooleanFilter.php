@@ -2,15 +2,15 @@
 
 namespace JoshGaber\NovaUnit\Tests\Fixtures\Filters;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Filters\BooleanFilter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class FakeBooleanFilter extends BooleanFilter
 {
     /**
      * {@inheritdoc}
      */
-    public function apply(Request $request, $query, $value)
+    public function apply(NovaRequest $request, $query, $value)
     {
         if ($value['alpha']) {
             $query->orWhere('text', 'alpha');
@@ -28,7 +28,7 @@ class FakeBooleanFilter extends BooleanFilter
     /**
      * {@inheritdoc}
      */
-    public function options(Request $request)
+    public function options(NovaRequest $request)
     {
         return [
             'Alpha Choice' => 'alpha',

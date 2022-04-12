@@ -2,8 +2,8 @@
 
 namespace JoshGaber\NovaUnit\Tests\Fixtures\Lenses;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\LensRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Lenses\Lens;
 
 class LensWithFiltersAndOrdering extends Lens
@@ -13,12 +13,12 @@ class LensWithFiltersAndOrdering extends Lens
         return $request->withFilters($request->withOrdering($query));
     }
 
-    public function fields(Request $request)
+    public function fields(NovaRequest $request)
     {
         return [];
     }
 
-    public function actions(Request $request)
+    public function actions(NovaRequest $request)
     {
         return [];
     }

@@ -60,6 +60,7 @@ If you discover any security related issues, please email joshgaber@gmail.com in
 ## Contributors
 
 * [Joshua Lauwrich Nandy](https://github.com/joshua060198)
+* [nicko170](https://github.com/nicko170)
 
 ## License
 

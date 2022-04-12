@@ -2,10 +2,10 @@
 
 namespace JoshGaber\NovaUnit\Tests\Fixtures\Lenses;
 
-use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\LensRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Lenses\Lens;
 
 class LensInvalidFieldsAndActions extends Lens
@@ -14,7 +14,7 @@ class LensInvalidFieldsAndActions extends Lens
     {
     }
 
-    public function fields(Request $request)
+    public function fields(NovaRequest $request)
     {
         return [
             Text::make('Alpha', 'field_alpha'),
@@ -22,7 +22,7 @@ class LensInvalidFieldsAndActions extends Lens
         ];
     }
 
-    public function actions(Request $request)
+    public function actions(NovaRequest $request)
     {
         return [
             new ActionValidFields(),

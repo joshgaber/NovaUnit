@@ -2,19 +2,19 @@
 
 namespace JoshGaber\NovaUnit\Tests\Fixtures\Resources;
 
-use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionNoFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
 
 class ResourceForFieldTests extends Resource
 {
     public static $model = MockModel::class;
 
-    public function fields(Request $request)
+    public function fields(NovaRequest $request)
     {
         return [
             Text::make('Alpha', 'field_alpha')
@@ -31,7 +31,7 @@ class ResourceForFieldTests extends Resource
         ];
     }
 
-    public function actions(Request $request)
+    public function actions(NovaRequest $request)
     {
         return [
             new ActionValidFields(),

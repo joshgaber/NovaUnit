@@ -71,10 +71,10 @@ trait ActionAssertions
     public function assertHasValidActions(string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->actions(Request::createFromGlobals()),
+            $this->component->actions(NovaRequest::createFromGlobals()),
             PHPUnit::logicalAnd(
                 new IsType(IsType::TYPE_ARRAY),
-                new TraversableContainsOnly(NovaRequest::class, false)
+                new TraversableContainsOnly(Action::class, false)
             ),
             $message
         );

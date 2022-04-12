@@ -2,15 +2,15 @@
 
 namespace JoshGaber\NovaUnit\Tests\Fixtures\Resources;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 use Laravel\Nova\Resource;
 
 class ResourceValidFieldsWithPanels extends Resource
 {
-    public function fields(Request $request)
+    public function fields(NovaRequest $request)
     {
         return [
             Text::make('Alpha', 'field_alpha'),
@@ -20,7 +20,7 @@ class ResourceValidFieldsWithPanels extends Resource
         ];
     }
 
-    public function actions(Request $request)
+    public function actions(NovaRequest $request)
     {
         return [];
     }
