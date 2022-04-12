@@ -107,4 +107,18 @@ class MockActionElement
     {
         return $this->assertNotShownInline($message);
     }
+
+    public function assertStandalone(string $message = ''): self
+    {
+        PHPUnit::assertTrue($this->action->standalone, $message);
+
+        return $this;
+    }
+
+    public function assertNotStandalone(string $message = ''): self
+    {
+        PHPUnit::assertFalse($this->action->standalone, $message);
+
+        return $this;
+    }
 }

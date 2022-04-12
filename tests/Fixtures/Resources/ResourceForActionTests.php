@@ -3,6 +3,7 @@
 namespace JoshGaber\NovaUnit\Tests\Fixtures\Resources;
 
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionNoFields;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionStandalone;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
 use Laravel\Nova\Fields\Number;
@@ -33,6 +34,7 @@ class ResourceForActionTests extends Resource
         return [
             (new ActionValidFields())->onlyOnDetail(),
             (new ActionNoFields())->exceptOnDetail(),
+            (new ActionStandalone())->standalone(),
         ];
     }
 }

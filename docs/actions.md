@@ -202,3 +202,19 @@ $action->assertNotShownInline();
 ```
 
 Asserts that the action will be hidden from this component's table row view.
+
+### `assertStandalone()`
+
+```php
+$action->assertStandalone();
+```
+
+Asserts that the action is defined as a standalone action.
+
+### `assertNotStandalone()`
+
+```php
+$action->assertNotStandalone();
+```
+
+Asserts that the action is not defined as a standalone action.

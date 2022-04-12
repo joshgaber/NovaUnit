@@ -4,6 +4,7 @@ namespace JoshGaber\NovaUnit\Tests\Feature\Actions;
 
 use JoshGaber\NovaUnit\Resources\MockResource;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionNoFields;
+use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionStandalone;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
 use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceForActionTests;
@@ -71,7 +72,7 @@ class MockActionElementTest extends TestCase
 
     // endregion
 
-    // region assertShownOnTableRow
+    // region assertShownInline
     public function testItSucceedsIfFieldIsShownOnTableRow()
     {
         $this->mock->action(ActionNoFields::class)->assertShownOnTableRow();
@@ -84,7 +85,7 @@ class MockActionElementTest extends TestCase
 
     // endregion
 
-    // region assertHiddenFromTableRow
+    // region assertNotShownInline
     public function testItSucceedsIfFieldIsHiddenFromTableRow()
     {
         $this->mock->action(ActionValidFields::class)->assertHiddenFromTableRow();
@@ -93,6 +94,32 @@ class MockActionElementTest extends TestCase
     public function testItFailsIfFieldIsNotHiddenFromTableRow()
     {
         $this->shouldFail()->mock->action(ActionNoFields::class)->assertHiddenFromTableRow();
+    }
+
+    // endregion
+
+    // region assertStandalone
+    public function testItSucceedsIfFieldIsStandalone()
+    {
+        $this->mock->action(ActionStandalone::class)->assertStandalone();
+    }
+
+    public function testItFailsIfFieldIsNotStandalone()
+    {
+        $this->shouldFail()->mock->action(ActionNoFields::class)->assertStandalone();
+    }
+
+    // endregion
+
+    // region assertStandalone
+    public function testItSucceedsIfFieldIsNotStandalone()
+    {
+        $this->mock->action(ActionNoFields::class)->assertNotStandalone();
+    }
+
+    public function testItFailsIfFieldIsNotNotStandalone()
+    {
+        $this->shouldFail()->mock->action(ActionStandalone::class)->assertNotStandalone();
     }
 
     // endregion
