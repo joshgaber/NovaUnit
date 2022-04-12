@@ -2,25 +2,25 @@
 
 namespace JoshGaber\NovaUnit\Tests\Fixtures\Resources;
 
-use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
 
 class ResourceInvalidFieldsetAndActionSet extends Resource
 {
     public static $model = MockModel::class;
 
-    public function fields(Request $request)
+    public function fields(NovaRequest $request)
     {
         return 'fields';
     }
 
-    public function actions(Request $request)
+    public function actions(NovaRequest $request)
     {
         return 'actions';
     }
 
-    public function filters(Request $request)
+    public function filters(NovaRequest $request)
     {
         return 'filters';
     }

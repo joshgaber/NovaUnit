@@ -2,18 +2,18 @@
 
 namespace JoshGaber\NovaUnit\Tests\Fixtures\Resources;
 
-use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\Filters\FakeSelectFilter;
 use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
 
 class ResourceInvalidFieldsAndActions extends Resource
 {
     public static $model = MockModel::class;
 
-    public function fields(Request $request)
+    public function fields(NovaRequest $request)
     {
         return [
             Text::make('Alpha', 'field_alpha'),
@@ -21,7 +21,7 @@ class ResourceInvalidFieldsAndActions extends Resource
         ];
     }
 
-    public function actions(Request $request)
+    public function actions(NovaRequest $request)
     {
         return [
             new ActionValidFields(),
@@ -29,7 +29,7 @@ class ResourceInvalidFieldsAndActions extends Resource
         ];
     }
 
-    public function filters(Request $request)
+    public function filters(NovaRequest $request)
     {
         return [
             new FakeSelectFilter(),

@@ -2,7 +2,6 @@
 
 namespace JoshGaber\NovaUnit\Traits;
 
-use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Constraints\ArrayHasInstanceOf;
 use Laravel\Nova\Filters\Filter;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -56,7 +55,7 @@ trait FilterAssertions
      */
     public function assertHasNoFilters(string $message = ''): self
     {
-        PHPUnit::assertCount(0, $this->component->filters(Request::createFromGlobals()), $message);
+        PHPUnit::assertCount(0, $this->component->filters(NovaRequest::createFromGlobals()), $message);
 
         return $this;
     }

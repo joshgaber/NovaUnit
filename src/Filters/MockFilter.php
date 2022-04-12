@@ -3,12 +3,12 @@
 namespace JoshGaber\NovaUnit\Filters;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use JoshGaber\NovaUnit\Exceptions\InvalidModelException;
 use JoshGaber\NovaUnit\MockComponent;
 use Laravel\Nova\Filters\BooleanFilter;
 use Laravel\Nova\Filters\DateFilter;
 use Laravel\Nova\Filters\Filter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\Constraint\ArrayHasKey;
 use PHPUnit\Framework\Constraint\IsInstanceOf;
@@ -73,7 +73,7 @@ class MockFilter extends MockComponent
     public function assertHasOption(string $option, string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->options(Request::createFromGlobals()),
+            $this->component->options(NovaRequest::createFromGlobals()),
             PHPUnit::logicalOr(
                 new ArrayHasKey($option),
                 new TraversableContainsEqual($option)
@@ -94,7 +94,7 @@ class MockFilter extends MockComponent
     public function assertOptionMissing(string $option, string $message = ''): self
     {
         PHPUnit::assertThat(
-            $this->component->options(Request::createFromGlobals()),
+            $this->component->options(NovaRequest::createFromGlobals()),
             PHPUnit::logicalNot(
                 PHPUnit::logicalOr(
                     new ArrayHasKey($option),
@@ -123,7 +123,7 @@ class MockFilter extends MockComponent
         }
 
         return new MockFilterQuery(
-            $this->component->apply(Request::createFromGlobals(), $model::query(), $value)
+            $this->component->apply(NovaRequest::createFromGlobals(), $model::query(), $value)
         );
     }
 }
