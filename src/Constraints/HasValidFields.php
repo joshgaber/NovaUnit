@@ -30,7 +30,7 @@ class HasValidFields extends Constraint
                 if (! $this->matches($field->data)) {
                     return false;
                 }
-            } elseif (! $field instanceof Field) {
+            } elseif (! $field instanceof Field && !$field instanceof \Laravel\Nova\Fields\FieldElement) {
                 return false;
             }
         }
