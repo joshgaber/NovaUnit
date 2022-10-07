@@ -14,6 +14,7 @@ use JoshGaber\NovaUnit\Tests\Fixtures\Actions\ActionValidFields;
 use JoshGaber\NovaUnit\Tests\Fixtures\Lenses\LensValidFieldsWithPanels;
 use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
 use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceValidFieldsWithPanels;
+use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceValidFieldsWithResourceTools;
 use JoshGaber\NovaUnit\Tests\TestCase;
 
 class FieldAssertionsTest extends TestCase
@@ -44,6 +45,12 @@ class FieldAssertionsTest extends TestCase
     public function testItCanValidateAllFieldsOnResourcesWithPanels()
     {
         $mock = new MockResource(new ResourceValidFieldsWithPanels(new MockModel()));
+        $mock->assertHasValidFields();
+    }
+
+    public function testItCanValidateAllFieldsOnResourcesWithResourceTools()
+    {
+        $mock = new MockResource(new ResourceValidFieldsWithResourceTools(new MockModel()));
         $mock->assertHasValidFields();
     }
 
