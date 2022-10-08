@@ -7,6 +7,8 @@ on:
             - "**/*.md"
             - "*.md"
             - "**/*.json"
+    push:
+        branches: [main]
 
 jobs:
     laravel-tests:
