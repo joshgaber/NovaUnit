@@ -41,7 +41,10 @@ Asserts that the `fields()` method returns an empty array.
 $component->assertHasValidFields();
 ```
 
-Asserts that all fields returned by the `fields()` method are valid Nova Fields.
+Asserts that all fields returned by the `fields()` method are valid. Examples of valid fields include:
+* `Field` instances
+* `FieldElement` instances
+* `Panel` instances (including any nested objects)
 
 ## Testing Fields Individually
 

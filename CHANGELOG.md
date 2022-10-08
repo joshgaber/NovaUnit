@@ -2,6 +2,14 @@
 
 All notable changes to NovaUnit will be documented in this file.
 
+## 3.0.2
+
+- Allow `FieldElement` as a valid field instance
+
+## 3.0.1
+
+- Use built-in `NovaRequest` for mocking components
+
 ## 3.0
 
 - Compatibility with Laravel Nova 4
