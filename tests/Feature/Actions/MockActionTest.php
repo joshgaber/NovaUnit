@@ -16,4 +16,11 @@ class MockActionTest extends TestCase
 
         $this->assertInstanceOf(MockActionResponse::class, $mockResult);
     }
+
+    public function testItReturnsMockActionFields()
+    {
+        $mockAction = new MockAction(new ActionValidFields());
+
+        $this->assertTrue(is_array($mockAction->getFields()));
+    }
 }
