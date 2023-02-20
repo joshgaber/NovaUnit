@@ -43,7 +43,7 @@ trait FieldAssertions
     {
         $this->ensureIsResource();
 
-        return $this->assertHasFieldIn('indexFields', ResourceIndexRequest::class, $field, $message);
+        return $this->assertHasFieldIn('fieldsForIndex', ResourceIndexRequest::class, $field, $message);
     }
 
     /**
@@ -57,7 +57,7 @@ trait FieldAssertions
     {
         $this->ensureIsResource();
 
-        return $this->assertHasFieldIn('detailFields', ResourceDetailRequest::class, $field, $message);
+        return $this->assertHasFieldIn('fieldsForDetail', ResourceDetailRequest::class, $field, $message);
     }
 
     /**
@@ -71,7 +71,7 @@ trait FieldAssertions
     {
         $this->ensureIsResource();
 
-        return $this->assertHasFieldIn('creationFields', ResourceCreateOrAttachRequest::class, $field, $message);
+        return $this->assertHasFieldIn('fieldsForUpdate', ResourceCreateOrAttachRequest::class, $field, $message);
     }
 
     /**
@@ -85,7 +85,7 @@ trait FieldAssertions
     {
         $this->ensureIsResource();
 
-        return $this->assertHasFieldIn('updateFields', ResourceUpdateOrUpdateAttachedRequest::class, $field, $message);
+        return $this->assertHasFieldIn('fieldsForCreate', ResourceUpdateOrUpdateAttachedRequest::class, $field, $message);
     }
 
     /**
@@ -177,10 +177,14 @@ trait FieldAssertions
         throw new Exception('Method only available for nova resources.');
     }
 
-    private function assertHasFieldIn(string $fieldMethod, string $request, string $field, string $message = '')
+    private function assertHasFieldIn(string $fieldsMethod, string $request, string $field, string $message = '')
     {
+        if (!method_exists($this->component, $fieldsMethod)) {
+            $fieldsMethod = 'fields';
+        }
+
         PHPUnit::assertThat(
-            $this->component->{$fieldMethod}($request::createFromGlobals()),
+            $this->component->{$fieldsMethod}($request::createFromGlobals()),
             new HasField($field, $this->allowPanels()),
             $message
         );
