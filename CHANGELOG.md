@@ -4,7 +4,7 @@ All notable changes to NovaUnit will be documented in this file.
 
 ## 3.1
 
-- Compatibility with Laravel 10
+- Compatibility with PHP 8, Laravel 10 and PHPUnit 10
 
 ## 3.0.2
 
