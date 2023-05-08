@@ -3,7 +3,9 @@
 namespace JoshGaber\NovaUnit\Actions;
 
 use JoshGaber\NovaUnit\Constraints\IsActionResponseType;
+use Laravel\Nova\Actions\ActionResponse;
 use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Framework\Constraint\IsInstanceOf;
 use PHPUnit\Framework\Constraint\IsType;
 
 class MockActionResponse
@@ -27,8 +29,10 @@ class MockActionResponse
         PHPUnit::assertThat(
             $this->response,
             PHPUnit::logicalAnd(
-                new IsType('array'),
-                new IsActionResponseType($type)
+                is_array($this->response)
+                    ? new IsType('array')
+                    : new IsInstanceOf(ActionResponse::class),
+                new IsActionResponseType($type, $this->response)
             ),
             $message
         );
