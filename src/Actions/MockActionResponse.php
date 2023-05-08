@@ -92,6 +92,17 @@ class MockActionResponse
     }
 
     /**
+     * Asserts the handle response is of type "push".
+     *
+     * @param  string  $message
+     * @return $this
+     */
+    public function assertVisit(string $message = ''): self
+    {
+        return $this->assertResponseType('visit', $message);
+    }
+
+    /**
      * Asserts the handle response is of type "openInNewTab".
      *
      * @param  string  $message
