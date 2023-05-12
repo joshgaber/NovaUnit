@@ -96,7 +96,7 @@ class MockActionResponse
     }
 
     /**
-     * Asserts the handle response is of type "push".
+     * Asserts the handle response is of type "visit".
      *
      * @param  string  $message
      * @return $this
