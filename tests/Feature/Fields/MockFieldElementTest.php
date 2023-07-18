@@ -2,10 +2,12 @@
 
 namespace JoshGaber\NovaUnit\Tests\Feature\Fields;
 
+use JoshGaber\NovaUnit\Fields\InvalidFieldTypeException;
 use JoshGaber\NovaUnit\Resources\MockResource;
 use JoshGaber\NovaUnit\Tests\Fixtures\MockModel;
 use JoshGaber\NovaUnit\Tests\Fixtures\Resources\ResourceForFieldTests;
 use JoshGaber\NovaUnit\Tests\TestCase;
+use Laravel\Nova\Fields\Number;
 
 class MockFieldElementTest extends TestCase
 {
@@ -247,6 +249,25 @@ class MockFieldElementTest extends TestCase
     public function testItFailsIfFieldIsNotNotSortable()
     {
         $this->shouldFail()->mock->field('Delta')->assertNotSortable();
+    }
+
+    // endregion
+
+    // region assertHasFieldType
+    public function testItSucceedsIfFieldHasType()
+    {
+        $this->mock->field('Beta')->assertHasFieldType(Number::class);
+    }
+
+    public function testItFailsIfFieldDoesNotHaveType()
+    {
+        $this->shouldFail()->mock->field('Delta')->assertHasFieldType(Number::class);
+    }
+
+    public function testItThrowsOnInvalidFieldType()
+    {
+        $this->expectException(InvalidFieldTypeException::class);
+        $this->mock->field('Delta')->assertHasFieldType('invalid');
     }
 
     // endregion
