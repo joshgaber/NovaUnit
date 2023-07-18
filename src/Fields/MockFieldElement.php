@@ -8,7 +8,7 @@ use PHPUnit\Framework\UnknownClassOrInterfaceException;
 
 class MockFieldElement
 {
-    private $field;
+    public $field;
 
     public function __construct(Field $field)
     {
