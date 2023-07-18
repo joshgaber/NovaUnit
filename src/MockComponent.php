@@ -4,7 +4,7 @@ namespace JoshGaber\NovaUnit;
 
 abstract class MockComponent
 {
-    protected $component;
+    public $component;
 
     public function __construct($component)
     {
