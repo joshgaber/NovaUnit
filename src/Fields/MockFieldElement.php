@@ -4,6 +4,7 @@ namespace JoshGaber\NovaUnit\Fields;
 
 use Laravel\Nova\Fields\Field;
 use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Framework\UnknownClassOrInterfaceException;
 
 class MockFieldElement
 {
@@ -287,6 +288,25 @@ class MockFieldElement
     {
         PHPUnit::assertFalse($this->field->sortable, $message);
 
+        return $this;
+    }
+
+    /**
+     * Assert that this field as the given field type.
+     *
+     * @param  string  $type  The Nova field type to check against
+     * @param  string  $message
+     *
+     * @return $this
+     * @throws \JoshGaber\NovaUnit\Fields\InvalidFieldTypeException
+     */
+    public function assertHasFieldType(string $type, string $message = ''): self
+    {
+        try {
+            PHPUnit::assertInstanceOf($type, $this->field);
+        } catch (UnknownClassOrInterfaceException $exception) {
+            throw new InvalidFieldTypeException("Given type $type is unknown.");
+        }
         return $this;
     }
 }
