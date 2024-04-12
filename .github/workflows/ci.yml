@@ -67,6 +67,6 @@ jobs:
             -   name: Set Nova credentials
                 run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_4_EMAIL }} ${{ secrets.NOVA_4_CREDENTIALS }}
             -   name: Install Dependencies
-                run: composer update --no-interaction --no-update
+                run: composer update --prefer-stable --prefer-dist --no-interaction
             -   name: Execute tests (Unit and Feature tests) via PHPUnit
                 run: ./vendor/bin/php-cs-fixer fix --dry-run
