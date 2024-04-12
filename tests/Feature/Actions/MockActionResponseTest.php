@@ -62,6 +62,8 @@ class MockActionResponseTest extends TestCase
 
     public function testItSucceedsOnPushResponse()
     {
+        $this->markTestSkipped('Action push has been deprecated.');
+
         $mockActionResponse = new MockActionResponse(Action::push('test', ''));
         $mockActionResponse->assertPush();
     }
