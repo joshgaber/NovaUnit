@@ -47,7 +47,7 @@ jobs:
             - name: Copy .env.testing
               run: php -r "file_exists('.env.testing') || copy('.env.testing.example', '.env.testing');"
             - name: Set Nova credentials
-              run: echo '"${{ secrets.NOVA_4_CREDENTIALS }}"' > auth.json
+              run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_4_EMAIL }} ${{ secrets.NOVA_4_CREDENTIALS }}
             - name: Install Dependencies
               run: |
                   composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
@@ -65,7 +65,7 @@ jobs:
             -   name: Copy .env.testing
                 run: php -r "file_exists('.env.testing') || copy('.env.testing.example', '.env.testing');"
             -   name: Set Nova credentials
-                run: echo '"${{ secrets.NOVA_4_CREDENTIALS }}"' > auth.json
+                run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_4_EMAIL }} ${{ secrets.NOVA_4_CREDENTIALS }}
             -   name: Install Dependencies
                 run: composer update --no-interaction --prefer-source
             -   name: Execute tests (Unit and Feature tests) via PHPUnit
