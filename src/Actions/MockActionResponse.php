@@ -3,7 +3,9 @@
 namespace JoshGaber\NovaUnit\Actions;
 
 use JoshGaber\NovaUnit\Constraints\IsActionResponseType;
+use Laravel\Nova\Actions\ActionResponse;
 use PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Framework\Constraint\IsInstanceOf;
 use PHPUnit\Framework\Constraint\IsType;
 
 class MockActionResponse
@@ -27,8 +29,10 @@ class MockActionResponse
         PHPUnit::assertThat(
             $this->response,
             PHPUnit::logicalAnd(
-                new IsType('array'),
-                new IsActionResponseType($type)
+                is_array($this->response)
+                    ? new IsType('array')
+                    : new IsInstanceOf(ActionResponse::class),
+                new IsActionResponseType($type, $this->response)
             ),
             $message
         );
@@ -88,7 +92,18 @@ class MockActionResponse
      */
     public function assertPush(string $message = ''): self
     {
-        return $this->assertResponseType('push', $message);
+        return $this->assertResponseType('visit', $message);
+    }
+
+    /**
+     * Asserts the handle response is of type "visit".
+     *
+     * @param  string  $message
+     * @return $this
+     */
+    public function assertVisit(string $message = ''): self
+    {
+        return $this->assertResponseType('visit', $message);
     }
 
     /**

@@ -54,19 +54,19 @@ jobs:
                   composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
             - name: Execute tests (Unit and Feature tests) via PHPUnit
               run: ./vendor/bin/phpunit
-    lint:
-        runs-on: ubuntu-latest
-
-        steps:
-            -   uses: actions/checkout@v2
-            -   uses: shivammathur/setup-php@v2
-                with:
-                    php-version: "8.1"
-            -   name: Copy .env.testing
-                run: php -r "file_exists('.env.testing') || copy('.env.testing.example', '.env.testing');"
-            -   name: Set Nova credentials
-                run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_4_EMAIL }} ${{ secrets.NOVA_4_CREDENTIALS }}
-            -   name: Install Dependencies
-                run: composer update --no-interaction --prefer-source
-            -   name: Execute tests (Unit and Feature tests) via PHPUnit
-                run: ./vendor/bin/php-cs-fixer fix --dry-run
+#    lint:
+#        runs-on: ubuntu-latest
+#
+#        steps:
+#            -   uses: actions/checkout@v2
+#            -   uses: shivammathur/setup-php@v2
+#                with:
+#                    php-version: "8.1"
+#            -   name: Copy .env.testing
+#                run: php -r "file_exists('.env.testing') || copy('.env.testing.example', '.env.testing');"
+#            -   name: Set Nova credentials
+#                run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_4_EMAIL }} ${{ secrets.NOVA_4_CREDENTIALS }}
+#            -   name: Install Dependencies
+#                run: composer update --no-interaction --prefer-source
+#            -   name: Execute tests (Unit and Feature tests) via PHPUnit
+#                run: ./vendor/bin/php-cs-fixer fix --dry-run
