@@ -26,7 +26,7 @@ class IsActionResponseType extends Constraint
 
     public function matches($response): bool
     {
-        if (is_array($this->actionResponse)){
+        if (is_array($this->actionResponse)) {
             $structure = \array_keys(\call_user_func([Action::class, $this->actionType], 'param 1', 'param 2'));
             $responseKeys = \array_keys($response);
 
