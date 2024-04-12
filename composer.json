@@ -23,9 +23,9 @@
         "php": "^8.0",
         "ext-mbstring": "*",
         "cakephp/chronos": ">=2.0.0",
-        "illuminate/support": "^8.83.4|^9.3.1|^10.0",
+        "illuminate/support": "^8.83.4|^9.3.1|^10.0|^11.0",
         "laravel/nova": "^4.0",
-        "phpunit/phpunit": "^9.0|^10.0"
+        "phpunit/phpunit": "^9.0|^10.0|^11.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
