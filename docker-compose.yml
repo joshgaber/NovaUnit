@@ -1,0 +1,21 @@
+name: "novaunit"
+
+services:
+ php:
+    build:
+        context: .docker
+        dockerfile: php.development.dockerfile
+    restart: unless-stopped
+    user: 1000:1000
+    working_dir: /srv
+    volumes:
+        - .:/srv
+        - ~/.composer:/home/composer/.composer
+        - ./vendor:/srv/vendor:delegated
+        - ./storage/xdebug:/tmp/xdebug:delegated
+        - ./.docker/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+    environment:
+        XDEBUG_MODE: '${XDEBUG_MODE:-off}'
+        XDEBUG_CONFIG: '${XDEBUG_CONFIG:-client_host=host.docker.internal}'
+
+

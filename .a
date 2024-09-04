@@ -1,0 +1,14 @@
+# To use this file in your *nix terminal run: `source .a`
+alias dc='docker-compose'
+alias dce='dc exec php'
+alias cl='dce sh'
+alias php='dce php'
+alias composer="dce composer"
+alias composer-install="composer-run install"
+alias dumpa='dce composer dumpa'
+alias test='composer run test'
+alias docker-up='dc up -d --build'
+alias docker-down='dc down'
+alias cl-sudo='docker exec -u root -t -i crm-php /bin/sh' # requires container to be previously up
+alias make-magic='echo "Abracadabra! 🎩✨ Your code is now enchanted!"'
+
