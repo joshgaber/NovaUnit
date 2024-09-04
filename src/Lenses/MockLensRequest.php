@@ -24,7 +24,7 @@ class MockLensRequest extends LensRequest
         return $query;
     }
 
-    public function withOrdering($query)
+    public function withOrdering($query, $defaultCallback = null)
     {
         $this->withOrdering = true;
 
