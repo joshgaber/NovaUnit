@@ -17,7 +17,7 @@ composer require --dev joshgaber/novaunit
 
 ### Requirements
 
-* PHP 7.3 or higher
+* PHP 7.3 or higher (Latest is 8.0)
 * [Laravel](https://laravel.com/) 6.x - 10.x
 * [Laravel Nova](https://nova.laravel.com/) 2.x - 4.x
 * [PHPUnit](https://github.com/sebastianbergmann/phpunit) 8.5.x - 10.x
@@ -51,11 +51,14 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you discover any security related issues, please email joshgaber@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email rob _at_ `quotevelocity`.com instead of using the issue tracker.
+
+## Maintained By
+* [Robert Marney](https://github.com/robertmarney) (Maintainer)
 
 ## Created By
 
-* [Josh Gaber](https://github.com/joshgaber) (Creator & Maintainer)
+* [Josh Gaber](https://github.com/joshgaber) (Creator)
 
 ## Contributors
 

@@ -1,14 +1,14 @@
 {
-    "name": "joshgaber/novaunit",
+    "name": "quotevelocity/novaunit",
     "description": "Unit testing suite for Laravel Nova, built to extend PHPUnit",
-    "version": "3.1.0",
+    "version": "4.0.0",
     "keywords": [
         "laravel",
         "nova",
         "joshgaber",
         "novaunit"
     ],
-    "homepage": "https://github.com/joshgaber/novaunit",
+    "homepage": "https://github.com/qvelocity/novaunit",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -16,6 +16,10 @@
             "name": "Josh Gaber",
             "email": "joshgaber@gmail.com",
             "homepage": "https://joshgaber.ca",
+            "role": "Developer"
+        },
+        {
+            "name": "Robert Marney",
             "role": "Developer"
         }
     ],
