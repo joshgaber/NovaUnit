@@ -9,8 +9,9 @@ class IsActionResponseType extends Constraint
 {
     private $actionType;
 
-    public function __construct($actionType)
+    public function __construct($actionType, $actionResponse)
     {
+        $this->actionResponse = $actionResponse;
         $this->actionType = $actionType;
     }
 
@@ -24,12 +25,16 @@ class IsActionResponseType extends Constraint
 
     public function matches($response): bool
     {
-        $structure = \array_keys(\call_user_func([Action::class, $this->actionType], 'param 1', 'param 2'));
-        $responseKeys = \array_keys($response);
+        if (is_array($this->actionResponse)){
+            $structure = \array_keys(\call_user_func([Action::class, $this->actionType], 'param 1', 'param 2'));
+            $responseKeys = \array_keys($response);
 
-        \sort($structure);
-        \sort($responseKeys);
+            \sort($structure);
+            \sort($responseKeys);
 
-        return $structure === $responseKeys;
+            return $structure === $responseKeys;
+        }
+
+        return $this->actionResponse->offsetExists($this->actionType);
     }
 }
