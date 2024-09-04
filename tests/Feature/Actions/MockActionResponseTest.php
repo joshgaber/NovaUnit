@@ -5,6 +5,7 @@ namespace JoshGaber\NovaUnit\Tests\Feature\Actions;
 use JoshGaber\NovaUnit\Actions\MockActionResponse;
 use JoshGaber\NovaUnit\Tests\TestCase;
 use Laravel\Nova\Actions\Action;
+use Laravel\Nova\Actions\ActionResponse;
 
 class MockActionResponseTest extends TestCase
 {
@@ -151,5 +152,11 @@ class MockActionResponseTest extends TestCase
         $this->shouldFail();
         $mockActionResponse = new MockActionResponse();
         $mockActionResponse->assertResponseType('message');
+    }
+
+    public function testItCanGetResponse()
+    {
+        $mockActionResponse = new MockActionResponse(Action::message('Test Message'));
+        $this->assertInstanceOf(ActionResponse::class, $mockActionResponse->getResponse());
     }
 }
