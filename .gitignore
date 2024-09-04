@@ -8,6 +8,7 @@ clover.xml
 
 auth.json
 
+.phpunit.cache
 .phpunit.result.cache
 .phpunit.result/
 .php_cs.cache

@@ -6,7 +6,6 @@ services:
         context: .docker
         dockerfile: php.development.dockerfile
     restart: unless-stopped
-    user: 1000:1000
     working_dir: /srv
     volumes:
         - .:/srv

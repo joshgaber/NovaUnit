@@ -60,7 +60,6 @@ class MockActionResponseTest extends TestCase
         $mockActionResponse->assertRedirect();
     }
 
-
     public function testItFailsOnResponseOtherThanPush()
     {
         $this->shouldFail();

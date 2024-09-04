@@ -27,7 +27,7 @@ class MockFilter extends MockComponent
         PHPUnit::assertThat(
             $this->component,
             PHPUnit::logicalAnd(
-                new isInstanceOf(Filter::class),
+                new IsInstanceOf(Filter::class),
                 PHPUnit::logicalNot(new IsInstanceOf(BooleanFilter::class)),
                 PHPUnit::logicalNot(new IsInstanceOf(DateFilter::class))
             ),

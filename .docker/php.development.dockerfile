@@ -7,3 +7,7 @@ RUN apt-get update \
         php8.3-xdebug \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+RUN addgroup --gid 1000 composer && \
+    adduser --disabled-password --ingroup composer --uid 1000 composer
+
