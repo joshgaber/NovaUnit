@@ -8,6 +8,7 @@ use Illuminate\Support\Collection;
 use JoshGaber\NovaUnit\MockComponent;
 use JoshGaber\NovaUnit\Traits\FieldAssertions;
 use Laravel\Nova\Fields\ActionFields;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class MockAction extends MockComponent
 {
@@ -28,5 +29,10 @@ class MockAction extends MockComponent
                 $models instanceof Collection ? $models : collect(Arr::wrap($models))
             )
         );
+    }
+
+    public function getFields(NovaRequest $request = null): array
+    {
+        return $this->component->fields($request ?? NovaRequest::createFromGlobals());
     }
 }
