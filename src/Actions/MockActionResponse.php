@@ -165,4 +165,12 @@ class MockActionResponse
     {
         return $this->assertResponseContains($contents, 'danger', $message);
     }
+
+    /**
+     * @return array|ActionResponse|null
+     */
+    public function getResponse(): array|ActionResponse|null
+    {
+        return $this->response;
+    }
 }

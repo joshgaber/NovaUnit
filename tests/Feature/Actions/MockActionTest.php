@@ -25,8 +25,5 @@ class MockActionTest extends TestCase
         $this->assertIsArray($mockAction->getFields());
 
         $this->assertIsArray($mockAction->getFields(NovaRequest::createFromGlobals()));
-
     }
-
-
 }
