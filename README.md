@@ -1,3 +1,6 @@
+> [!WARNING]
+> Thank you to everyone who has supported, downloaded and contributed to NovaUnit over the years. **This repository is no longer maintained**, and has been moved to https://github.com/qvelocity/novaunit. Big shout out to @robertmarney and the team at @qvelocity for continuing this project!
+
 # NovaUnit
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/joshgaber/novaunit.svg?style=flat-square)](https://packagist.org/packages/joshgaber/novaunit)
